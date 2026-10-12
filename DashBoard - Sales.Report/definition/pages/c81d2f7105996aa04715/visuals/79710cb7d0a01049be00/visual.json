@@ -1,0 +1,97 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "79710cb7d0a01049be00",
+  "position": {
+    "x": 29.924433249370274,
+    "y": 37.178841309823675,
+    "z": 0,
+    "height": 144.18136020151132,
+    "width": 758.08564231738035,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimChannel"
+                    }
+                  },
+                  "Property": "ChannelName"
+                }
+              },
+              "queryRef": "DimChannel.ChannelName",
+              "nativeQueryRef": "ChannelName"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "#Medidas Profit"
+                    }
+                  },
+                  "Property": "Sales Profit"
+                }
+              },
+              "queryRef": "#Medidas Profit.Sales Profit",
+              "nativeQueryRef": "Sales Profit"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "#Medidas Profit"
+                    }
+                  },
+                  "Property": "profit for channel %"
+                }
+              },
+              "queryRef": "#Medidas Sales.channel %",
+              "nativeQueryRef": "profit for channel %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "#Medidas Profit"
+                    }
+                  },
+                  "Property": "% flutuação de total de profit do primeiro ano e ultimo ano"
+                }
+              },
+              "queryRef": "#Medidas Sales.% flutuação de total de vendas do primeiro ano e ultimo ano",
+              "nativeQueryRef": "% flutuação de total de profit do primeiro ano e ultimo ano"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "DimChannel"
+                  }
+                },
+                "Property": "ChannelName"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

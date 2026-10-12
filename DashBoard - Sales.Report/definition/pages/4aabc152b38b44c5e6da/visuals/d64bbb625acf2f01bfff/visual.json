@@ -1,0 +1,255 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "d64bbb625acf2f01bfff",
+  "position": {
+    "x": 648.75,
+    "y": 368.75,
+    "z": 5000,
+    "height": 321.25,
+    "width": 320,
+    "tabOrder": 5000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "A CLASSE DE PRODUTOS ECONÔMICOS ",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "14pt",
+                      "color": "#041232"
+                    }
+                  },
+                  {
+                    "value": "CRESCEU MAIS DE 80%",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "14pt",
+                      "color": "#004484"
+                    }
+                  },
+                  {
+                    "value": ", ",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "14pt",
+                      "color": "#041232"
+                    }
+                  },
+                  {
+                    "value": "NOS LUCROS ENTRE 2007 E 2009 ",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontFamily": "inherit",
+                      "fontSize": "14pt",
+                      "color": "#041232"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Com a redução do poder de compra da população, essa modalidade apresentou crescimento natural.",
+                    "textStyle": {
+                      "fontSize": "12pt",
+                      "color": "#041232"
+                    }
+                  },
+                  {
+                    "value": " ",
+                    "textStyle": {
+                      "fontSize": "12pt",
+                      "color": "#004484"
+                    }
+                  },
+                  {
+                    "value": "A crise pode ter revelado um mercado emergente de “custo-benefício”",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "12pt",
+                      "color": "#004484"
+                    }
+                  },
+                  {
+                    "value": ", com produtos que entregam a melhor qualidade possível a preços acessíveis.",
+                    "textStyle": {
+                      "fontSize": "12pt",
+                      "color": "#041232"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Esse cenário pode representar uma oportunidade de ",
+                    "textStyle": {
+                      "fontSize": "12pt",
+                      "color": "#041232"
+                    }
+                  },
+                  {
+                    "value": "e",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "12pt",
+                      "color": "#041232"
+                    }
+                  },
+                  {
+                    "value": "xpansão futura para países com menor poder de compra.",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "12pt",
+                      "color": "#004484"
+                    }
+                  },
+                  {
+                    "value": " ",
+                    "textStyle": {
+                      "fontSize": "12pt",
+                      "color": "#004484"
+                    }
+                  },
+                  {
+                    "value": "Investir no desenvolvimento de produtos econômicos permitiria levar uma marca já consolidada no segmento premium a consumidores com menor poder aquisitivo. Contudo, é importante manter um padrão de qualidade que ",
+                    "textStyle": {
+                      "fontSize": "12pt",
+                      "color": "#041232"
+                    }
+                  },
+                  {
+                    "value": "não comprometa a imagem consolidada da empresa",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "12pt",
+                      "color": "#041232"
+                    }
+                  },
+                  {
+                    "value": ", cuja maior parte das vendas é estabelecida pelos produtos da classe",
+                    "textStyle": {
+                      "fontSize": "12pt",
+                      "color": "#041232"
+                    }
+                  },
+                  {
+                    "value": " ",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "12pt",
+                      "color": "#041232"
+                    }
+                  },
+                  {
+                    "value": "regular ",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontStyle": "italic",
+                      "fontSize": "12pt",
+                      "color": "#041232"
+                    }
+                  },
+                  {
+                    "value": "e ",
+                    "textStyle": {
+                      "fontSize": "12pt",
+                      "color": "#041232"
+                    }
+                  },
+                  {
+                    "value": "deluxe",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontStyle": "italic",
+                      "fontSize": "12pt",
+                      "color": "#041232"
+                    }
+                  },
+                  {
+                    "value": ".",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "12pt",
+                      "color": "#041232"
+                    }
+                  },
+                  {
+                    "value": " ",
+                    "textStyle": {
+                      "fontSize": "12pt",
+                      "color": "#041232"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Além disso, investimentos pesados exigem cautela, pois, com o fim da crise e a recuperação da América do Norte e da Europa, ",
+                    "textStyle": {
+                      "fontSize": "12pt",
+                      "color": "#041232"
+                    }
+                  },
+                  {
+                    "value": "esses produtos podem retornar ao seu comportamento natural nesses grandes mercados.",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "12pt",
+                      "color": "#004484"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

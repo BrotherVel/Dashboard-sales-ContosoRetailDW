@@ -1,0 +1,32 @@
+table DimChannel
+	lineageTag: 274c1ee1-41e4-4b03-85c2-610f77d7c29b
+
+	column ChannelKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 593cda93-e232-4d49-b65d-1d09ae1d6906
+		summarizeBy: none
+		sourceColumn: ChannelKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ChannelName
+		dataType: string
+		lineageTag: 12fc86e1-41c1-4a0e-b47c-fa3201089fde
+		summarizeBy: none
+		sourceColumn: ChannelName
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimChannel = m
+		mode: import
+		source =
+				let
+				    Fonte = Sql.Database("LocalHost", "ContosoRetailDW", [Query="SELECT [ChannelKey]#(lf)      ,[ChannelName]#(lf)FROM [ContosoRetailDW].[dbo].[DimChannel]"])
+				in
+				    Fonte
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegação
+

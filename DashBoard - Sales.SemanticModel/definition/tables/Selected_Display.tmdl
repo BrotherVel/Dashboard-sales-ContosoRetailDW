@@ -1,0 +1,29 @@
+table Selected_Display
+	lineageTag: 5260dc7f-7793-4970-b988-2662eca6ad36
+
+	column Display
+		dataType: string
+		lineageTag: 6ae0178e-0ecf-4a2f-ad5b-de4620c07306
+		summarizeBy: none
+		sourceColumn: Display
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Selected_Display = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WCk7MSS1WitWBshQiUxOLFEryFVwSS1KRhH3z80oyEOKxAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [#"Coluna 1" = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Coluna 1", type text}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Changed Type",{{"Coluna 1", "Display"}}),
+				    #"Filtered Rows" = Table.SelectRows(#"Renamed Columns", each ([Display] <> "Sales Month to Date")),
+				    #"Replaced Value" = Table.ReplaceValue(#"Filtered Rows","Sales"," Sales",Replacer.ReplaceText,{"Display"}),
+				    #"Replaced Value1" = Table.ReplaceValue(#"Replaced Value"," Sales","Lucros",Replacer.ReplaceText,{"Display"}),
+				    #"Replaced Value2" = Table.ReplaceValue(#"Replaced Value1","Lucros Year to Date","Lucros Acumulados",Replacer.ReplaceText,{"Display"})
+				in
+				    #"Replaced Value2"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

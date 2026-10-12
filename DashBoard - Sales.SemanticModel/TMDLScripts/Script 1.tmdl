@@ -1,0 +1,1338 @@
+createOrReplace
+
+	table DimChannel
+		lineageTag: 274c1ee1-41e4-4b03-85c2-610f77d7c29b
+
+		column ChannelKey
+			dataType: int64
+			formatString: 0
+			lineageTag: 593cda93-e232-4d49-b65d-1d09ae1d6906
+			summarizeBy: none
+			sourceColumn: ChannelKey
+
+			annotation SummarizationSetBy = Automatic
+
+		column ChannelLabel
+			dataType: string
+			lineageTag: 87cdfefc-c2a2-47d3-a398-a8164f600779
+			summarizeBy: none
+			sourceColumn: ChannelLabel
+
+			annotation SummarizationSetBy = Automatic
+
+		column ChannelName
+			dataType: string
+			lineageTag: 12fc86e1-41c1-4a0e-b47c-fa3201089fde
+			summarizeBy: none
+			sourceColumn: ChannelName
+
+			annotation SummarizationSetBy = Automatic
+
+		column ChannelDescription
+			dataType: string
+			lineageTag: e4b7e81b-04f7-410a-847b-72d882480c73
+			summarizeBy: none
+			sourceColumn: ChannelDescription
+
+			annotation SummarizationSetBy = Automatic
+
+		column ETLLoadID
+			dataType: int64
+			formatString: 0
+			lineageTag: dc9b56f4-7310-48a1-b55b-94c96e4a6073
+			summarizeBy: count
+			sourceColumn: ETLLoadID
+
+			annotation SummarizationSetBy = Automatic
+
+		column LoadDate
+			dataType: dateTime
+			formatString: General Date
+			lineageTag: b67f12fd-3e0c-47dc-a366-dd2488439f5e
+			summarizeBy: none
+			sourceColumn: LoadDate
+
+			variation Variation
+				isDefault
+				relationship: 1ae6b4b4-995c-412d-bd6f-175bba3257f4
+				defaultHierarchy: LocalDateTable_c84d30a2-5934-488d-b0c7-41ca05cd2bd6.'Hierarquia de datas'
+
+			annotation SummarizationSetBy = Automatic
+
+		column UpdateDate
+			dataType: dateTime
+			formatString: General Date
+			lineageTag: 36bdaad8-4d33-47ea-8280-237a55a78253
+			summarizeBy: none
+			sourceColumn: UpdateDate
+
+			variation Variation
+				isDefault
+				relationship: 5fad270c-9f47-4282-8032-4ab833a5ac73
+				defaultHierarchy: LocalDateTable_6b371fbc-49d8-4385-abbe-362eb7285cde.'Hierarquia de datas'
+
+			annotation SummarizationSetBy = Automatic
+
+		partition DimChannel = m
+			mode: import
+			source =
+					let
+					    Fonte = Sql.Database("LocalHost", "ContosoRetailDW"),
+					    dbo_DimChannel = Fonte{[Schema="dbo",Item="DimChannel"]}[Data]
+					in
+					    dbo_DimChannel
+
+		annotation PBI_ResultType = Table
+
+	table DimDate
+		lineageTag: d83704d4-1644-4715-b846-ac6445827fb0
+
+		column Datekey
+			dataType: dateTime
+			formatString: General Date
+			lineageTag: d574d126-55ea-4aa6-ad6f-42aa62a31ecf
+			summarizeBy: none
+			sourceColumn: Datekey
+
+			variation Variation
+				isDefault
+				relationship: cc975759-76f5-476c-9052-5ff24a0384bf
+				defaultHierarchy: LocalDateTable_64583c1a-3301-40b3-a9fb-6e0bcc499fdd.'Hierarquia de datas'
+
+			annotation SummarizationSetBy = Automatic
+
+		column FullDateLabel
+			dataType: string
+			lineageTag: 5971b60d-7f82-4d61-9d08-3b92bcd38436
+			summarizeBy: none
+			sourceColumn: FullDateLabel
+
+			annotation SummarizationSetBy = Automatic
+
+		column DateDescription
+			dataType: string
+			lineageTag: f2e1b789-0308-4520-953a-23a7e45c16cf
+			summarizeBy: none
+			sourceColumn: DateDescription
+
+			annotation SummarizationSetBy = Automatic
+
+		column CalendarYear
+			dataType: int64
+			formatString: 0
+			lineageTag: 89ce9fc2-2402-4bda-9384-bdc7b8d0478e
+			summarizeBy: sum
+			sourceColumn: CalendarYear
+
+			annotation SummarizationSetBy = Automatic
+
+		column CalendarYearLabel
+			dataType: string
+			lineageTag: 000c3940-179b-41ad-9ad6-17267edcbd0f
+			summarizeBy: none
+			sourceColumn: CalendarYearLabel
+
+			annotation SummarizationSetBy = Automatic
+
+		column CalendarHalfYear
+			dataType: int64
+			formatString: 0
+			lineageTag: 24572106-87d5-4d60-9b4a-1e251f95dbf8
+			summarizeBy: sum
+			sourceColumn: CalendarHalfYear
+
+			annotation SummarizationSetBy = Automatic
+
+		column CalendarHalfYearLabel
+			dataType: string
+			lineageTag: 157a43a5-a72a-42a9-b73a-986c51ac9829
+			summarizeBy: none
+			sourceColumn: CalendarHalfYearLabel
+
+			annotation SummarizationSetBy = Automatic
+
+		column CalendarQuarter
+			dataType: int64
+			formatString: 0
+			lineageTag: 9d757981-843c-4b7c-9425-a16ecc5ecbac
+			summarizeBy: sum
+			sourceColumn: CalendarQuarter
+
+			annotation SummarizationSetBy = Automatic
+
+		column CalendarQuarterLabel
+			dataType: string
+			lineageTag: 0c1b1f9d-7a94-4622-9d7a-44fdc9c1c275
+			summarizeBy: none
+			sourceColumn: CalendarQuarterLabel
+
+			annotation SummarizationSetBy = Automatic
+
+		column CalendarMonth
+			dataType: int64
+			formatString: 0
+			lineageTag: 71ba85be-4869-40d9-8508-042a7a9cb519
+			summarizeBy: sum
+			sourceColumn: CalendarMonth
+
+			annotation SummarizationSetBy = Automatic
+
+		column CalendarMonthLabel
+			dataType: string
+			lineageTag: 938f9dd9-25ba-42db-bb7d-d6e60fa95651
+			summarizeBy: none
+			sourceColumn: CalendarMonthLabel
+
+			annotation SummarizationSetBy = Automatic
+
+		column CalendarWeek
+			dataType: int64
+			formatString: 0
+			lineageTag: c84a2c8b-b58d-4081-966e-4857d6dae09a
+			summarizeBy: sum
+			sourceColumn: CalendarWeek
+
+			annotation SummarizationSetBy = Automatic
+
+		column CalendarWeekLabel
+			dataType: string
+			lineageTag: 8f131b1b-cb5e-40f7-b3a9-ea05616adf00
+			summarizeBy: none
+			sourceColumn: CalendarWeekLabel
+
+			annotation SummarizationSetBy = Automatic
+
+		column CalendarDayOfWeek
+			dataType: int64
+			formatString: 0
+			lineageTag: 98f9a12a-1944-429f-9bb5-416222602ad3
+			summarizeBy: sum
+			sourceColumn: CalendarDayOfWeek
+
+			annotation SummarizationSetBy = Automatic
+
+		column CalendarDayOfWeekLabel
+			dataType: string
+			lineageTag: d9df136f-ee06-4eb9-8faf-c5079079f9ab
+			summarizeBy: none
+			sourceColumn: CalendarDayOfWeekLabel
+
+			annotation SummarizationSetBy = Automatic
+
+		column FiscalYear
+			dataType: int64
+			formatString: 0
+			lineageTag: 1709f974-b9f3-40dd-a5e4-1042f86718e4
+			summarizeBy: sum
+			sourceColumn: FiscalYear
+
+			annotation SummarizationSetBy = Automatic
+
+		column FiscalYearLabel
+			dataType: string
+			lineageTag: b7741936-90c2-4baa-98af-1c119a23e45e
+			summarizeBy: none
+			sourceColumn: FiscalYearLabel
+
+			annotation SummarizationSetBy = Automatic
+
+		column FiscalHalfYear
+			dataType: int64
+			formatString: 0
+			lineageTag: dc9b7e2c-eb1e-4bc9-954d-37eeb0abe0f4
+			summarizeBy: sum
+			sourceColumn: FiscalHalfYear
+
+			annotation SummarizationSetBy = Automatic
+
+		column FiscalHalfYearLabel
+			dataType: string
+			lineageTag: 3e3f373e-cc25-431b-8d2b-617f25a11824
+			summarizeBy: none
+			sourceColumn: FiscalHalfYearLabel
+
+			annotation SummarizationSetBy = Automatic
+
+		column FiscalQuarter
+			dataType: int64
+			formatString: 0
+			lineageTag: 0a0a16bf-d814-4a05-b06c-5bc279dc9f78
+			summarizeBy: sum
+			sourceColumn: FiscalQuarter
+
+			annotation SummarizationSetBy = Automatic
+
+		column FiscalQuarterLabel
+			dataType: string
+			lineageTag: 461ec42e-1f5b-49ef-aa5c-49d5d0415ac3
+			summarizeBy: none
+			sourceColumn: FiscalQuarterLabel
+
+			annotation SummarizationSetBy = Automatic
+
+		column FiscalMonth
+			dataType: int64
+			formatString: 0
+			lineageTag: a17430db-9ac7-4197-b3b4-3e05ae28c4be
+			summarizeBy: sum
+			sourceColumn: FiscalMonth
+
+			annotation SummarizationSetBy = Automatic
+
+		column FiscalMonthLabel
+			dataType: string
+			lineageTag: 80993fa3-1940-48a5-89ab-7df835d68e23
+			summarizeBy: none
+			sourceColumn: FiscalMonthLabel
+
+			annotation SummarizationSetBy = Automatic
+
+		column IsWorkDay
+			dataType: string
+			lineageTag: 2e2490e7-78a6-4d8f-9f74-8a811ed3e529
+			summarizeBy: none
+			sourceColumn: IsWorkDay
+
+			annotation SummarizationSetBy = Automatic
+
+		column IsHoliday
+			dataType: int64
+			formatString: 0
+			lineageTag: c5da55ae-7b45-4937-add8-b946300cedf5
+			summarizeBy: sum
+			sourceColumn: IsHoliday
+
+			annotation SummarizationSetBy = Automatic
+
+		column HolidayName
+			dataType: string
+			lineageTag: f3ad0115-1d6f-4b98-bcc3-67d0049c23ea
+			summarizeBy: none
+			sourceColumn: HolidayName
+
+			annotation SummarizationSetBy = Automatic
+
+		column EuropeSeason
+			dataType: string
+			lineageTag: 423f1686-1267-4470-a004-e72c8498b1bc
+			summarizeBy: none
+			sourceColumn: EuropeSeason
+
+			annotation SummarizationSetBy = Automatic
+
+		column NorthAmericaSeason
+			dataType: string
+			lineageTag: 038d1bf5-bca9-4baa-9737-216de594d640
+			summarizeBy: none
+			sourceColumn: NorthAmericaSeason
+
+			annotation SummarizationSetBy = Automatic
+
+		column AsiaSeason
+			dataType: string
+			lineageTag: 92093ce5-9dd2-4a13-ade6-7edb367dcadf
+			summarizeBy: none
+			sourceColumn: AsiaSeason
+
+			annotation SummarizationSetBy = Automatic
+
+		partition DimDate = m
+			mode: import
+			source =
+					let
+					    Fonte = Sql.Database("LocalHost", "ContosoRetailDW"),
+					    dbo_DimDate = Fonte{[Schema="dbo",Item="DimDate"]}[Data]
+					in
+					    dbo_DimDate
+
+		annotation PBI_ResultType = Table
+
+	table DimGeography
+		lineageTag: 7deae0d0-bfa8-4a25-b9c4-855f5f852c7d
+
+		column GeographyKey
+			dataType: int64
+			formatString: 0
+			lineageTag: 7887e7d1-2490-40b1-9626-074c6ed4acb6
+			summarizeBy: none
+			sourceColumn: GeographyKey
+
+			annotation SummarizationSetBy = Automatic
+
+		column GeographyType
+			dataType: string
+			lineageTag: 98e07d51-7f27-4b86-85ec-c3c8eb764aad
+			summarizeBy: none
+			sourceColumn: GeographyType
+
+			annotation SummarizationSetBy = Automatic
+
+		column ContinentName
+			dataType: string
+			lineageTag: b560f1c9-0010-40d9-914d-e0b3caa60532
+			summarizeBy: none
+			sourceColumn: ContinentName
+
+			annotation SummarizationSetBy = Automatic
+
+		column CityName
+			dataType: string
+			lineageTag: 680858d1-0ad3-4ea4-a282-838440df29d2
+			summarizeBy: none
+			sourceColumn: CityName
+
+			annotation SummarizationSetBy = Automatic
+
+		column StateProvinceName
+			dataType: string
+			lineageTag: 4a3c6b53-8946-48d1-8358-646b7495d53b
+			summarizeBy: none
+			sourceColumn: StateProvinceName
+
+			annotation SummarizationSetBy = Automatic
+
+		column RegionCountryName
+			dataType: string
+			lineageTag: 2868053e-8c03-4b9c-b99a-1837a9929d57
+			summarizeBy: none
+			sourceColumn: RegionCountryName
+
+			annotation SummarizationSetBy = Automatic
+
+		column Geometry
+			dataType: string
+			lineageTag: 1f570e5c-9046-4a72-bea9-a43dd3a41079
+			summarizeBy: none
+			sourceColumn: Geometry
+
+			annotation SummarizationSetBy = Automatic
+
+		column ETLLoadID
+			dataType: int64
+			formatString: 0
+			lineageTag: 97fad646-5f8d-4c90-917d-5d17a53fb19e
+			summarizeBy: count
+			sourceColumn: ETLLoadID
+
+			annotation SummarizationSetBy = Automatic
+
+		column LoadDate
+			dataType: dateTime
+			formatString: General Date
+			lineageTag: 0ff611d1-c30c-48ea-9ab6-c1aabb704014
+			summarizeBy: none
+			sourceColumn: LoadDate
+
+			variation Variation
+				isDefault
+				relationship: f3d5b6cb-d096-4095-96f5-09a1bb4690ad
+				defaultHierarchy: LocalDateTable_75347fd2-85d9-4f09-8108-ff6f916472e5.'Hierarquia de datas'
+
+			annotation SummarizationSetBy = Automatic
+
+		column UpdateDate
+			dataType: dateTime
+			formatString: General Date
+			lineageTag: e9755c3f-7770-4c1c-bf18-3fbbf297984f
+			summarizeBy: none
+			sourceColumn: UpdateDate
+
+			variation Variation
+				isDefault
+				relationship: 02cd0fcd-5448-4993-bd5c-2fd288d5129c
+				defaultHierarchy: LocalDateTable_f4e384b7-f044-4d80-a334-0075217b6e52.'Hierarquia de datas'
+
+			annotation SummarizationSetBy = Automatic
+
+		partition DimGeography = m
+			mode: import
+			source =
+					let
+					    Fonte = Sql.Database("LocalHost", "ContosoRetailDW"),
+					    dbo_DimGeography = Fonte{[Schema="dbo",Item="DimGeography"]}[Data]
+					in
+					    dbo_DimGeography
+
+		annotation PBI_ResultType = Table
+
+	table DimProduct
+		lineageTag: ba7d003f-6b69-451b-9fb3-7010b9a1fe27
+
+		column ProductKey
+			dataType: int64
+			formatString: 0
+			lineageTag: 57e30ea4-6032-4a97-bc87-42c5066e2c99
+			summarizeBy: none
+			sourceColumn: ProductKey
+
+			annotation SummarizationSetBy = Automatic
+
+		column ProductLabel
+			dataType: string
+			lineageTag: a5797d6a-4202-4d31-bce8-5f20e3ff9fea
+			summarizeBy: none
+			sourceColumn: ProductLabel
+
+			annotation SummarizationSetBy = Automatic
+
+		column ProductName
+			dataType: string
+			lineageTag: e1df11c0-03c5-4de8-9f0e-b098eb16d547
+			summarizeBy: none
+			sourceColumn: ProductName
+
+			annotation SummarizationSetBy = Automatic
+
+		column ProductDescription
+			dataType: string
+			lineageTag: 8f0ed4a7-479e-47ea-9fd4-9b148abcedd0
+			summarizeBy: none
+			sourceColumn: ProductDescription
+
+			annotation SummarizationSetBy = Automatic
+
+		column ProductSubcategoryKey
+			dataType: int64
+			formatString: 0
+			lineageTag: d1016aa4-ddd5-46f9-bb22-487a7bf1ac2c
+			summarizeBy: count
+			sourceColumn: ProductSubcategoryKey
+
+			annotation SummarizationSetBy = Automatic
+
+		column Manufacturer
+			dataType: string
+			lineageTag: d89e2966-3d96-4870-8ab7-d7ccf6e23d8f
+			summarizeBy: none
+			sourceColumn: Manufacturer
+
+			annotation SummarizationSetBy = Automatic
+
+		column BrandName
+			dataType: string
+			lineageTag: bfd7b178-649b-4829-80a8-1e6400ce6773
+			summarizeBy: none
+			sourceColumn: BrandName
+
+			annotation SummarizationSetBy = Automatic
+
+		column ClassID
+			dataType: string
+			lineageTag: 34950626-7b9b-42b7-8816-c5f790b95238
+			summarizeBy: none
+			sourceColumn: ClassID
+
+			annotation SummarizationSetBy = Automatic
+
+		column ClassName
+			dataType: string
+			lineageTag: d6d91aaa-fe83-4339-bea9-f95ec4b20de3
+			summarizeBy: none
+			sourceColumn: ClassName
+
+			annotation SummarizationSetBy = Automatic
+
+		column StyleID
+			dataType: string
+			lineageTag: cdabc9e4-76c3-4093-81d0-a8b166f661b4
+			summarizeBy: none
+			sourceColumn: StyleID
+
+			annotation SummarizationSetBy = Automatic
+
+		column StyleName
+			dataType: string
+			lineageTag: f7611e59-e21c-4c1f-816d-124a1b583dd5
+			summarizeBy: none
+			sourceColumn: StyleName
+
+			annotation SummarizationSetBy = Automatic
+
+		column ColorID
+			dataType: string
+			lineageTag: 288adc47-c84b-493d-b4c1-72c7f871c1a9
+			summarizeBy: none
+			sourceColumn: ColorID
+
+			annotation SummarizationSetBy = Automatic
+
+		column ColorName
+			dataType: string
+			lineageTag: 9e58d5f4-4554-42c4-ad8c-fad7dfa2ad6f
+			summarizeBy: none
+			sourceColumn: ColorName
+
+			annotation SummarizationSetBy = Automatic
+
+		column Size
+			dataType: string
+			lineageTag: c5bdee38-be26-4869-914f-8fa6795e755b
+			summarizeBy: none
+			sourceColumn: Size
+
+			annotation SummarizationSetBy = Automatic
+
+		column SizeRange
+			dataType: string
+			lineageTag: 40068a4a-4c77-4a00-94bb-5133e2bc2879
+			summarizeBy: none
+			sourceColumn: SizeRange
+
+			annotation SummarizationSetBy = Automatic
+
+		column SizeUnitMeasureID
+			dataType: string
+			lineageTag: d481e4b6-4835-4d6a-8340-d7fef344e7fc
+			summarizeBy: none
+			sourceColumn: SizeUnitMeasureID
+
+			annotation SummarizationSetBy = Automatic
+
+		column Weight
+			dataType: double
+			lineageTag: caf6c4a1-777a-422d-abba-e9fa36ab65e5
+			summarizeBy: sum
+			sourceColumn: Weight
+
+			annotation SummarizationSetBy = Automatic
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		column WeightUnitMeasureID
+			dataType: string
+			lineageTag: a871acec-1e83-4b88-8a73-db8d492078da
+			summarizeBy: none
+			sourceColumn: WeightUnitMeasureID
+
+			annotation SummarizationSetBy = Automatic
+
+		column UnitOfMeasureID
+			dataType: string
+			lineageTag: c5d5a78b-b4ca-42fa-b9a5-318ee9c6e486
+			summarizeBy: none
+			sourceColumn: UnitOfMeasureID
+
+			annotation SummarizationSetBy = Automatic
+
+		column UnitOfMeasureName
+			dataType: string
+			lineageTag: 550561a5-15dd-4b4e-817a-33614acdf355
+			summarizeBy: none
+			sourceColumn: UnitOfMeasureName
+
+			annotation SummarizationSetBy = Automatic
+
+		column StockTypeID
+			dataType: string
+			lineageTag: 2b27f07a-f763-41b8-baff-df092695106f
+			summarizeBy: none
+			sourceColumn: StockTypeID
+
+			annotation SummarizationSetBy = Automatic
+
+		column StockTypeName
+			dataType: string
+			lineageTag: 944f8bb9-c76e-4406-bf21-e499c3838d9f
+			summarizeBy: none
+			sourceColumn: StockTypeName
+
+			annotation SummarizationSetBy = Automatic
+
+		column UnitCost
+			dataType: decimal
+			formatString: "R$"\ #,0.###############;-"R$"\ #,0.###############;"R$"\ #,0.###############
+			lineageTag: 800d9f36-64fb-4080-b334-afb1c5548d94
+			summarizeBy: sum
+			sourceColumn: UnitCost
+
+			annotation SummarizationSetBy = Automatic
+
+			annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+		column UnitPrice
+			dataType: decimal
+			formatString: "R$"\ #,0.###############;-"R$"\ #,0.###############;"R$"\ #,0.###############
+			lineageTag: 197cafdf-0e24-4fdd-bef3-7490b80ac40f
+			summarizeBy: sum
+			sourceColumn: UnitPrice
+
+			annotation SummarizationSetBy = Automatic
+
+			annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+		column AvailableForSaleDate
+			dataType: dateTime
+			formatString: General Date
+			lineageTag: fba47cb3-3ab8-4430-9563-fa5f3d063330
+			summarizeBy: none
+			sourceColumn: AvailableForSaleDate
+
+			variation Variation
+				isDefault
+				relationship: c5b41e84-12a6-413d-aa32-8c16a0fc33b2
+				defaultHierarchy: LocalDateTable_713ee59c-d794-4f33-934c-fceaf5a620c6.'Hierarquia de datas'
+
+			annotation SummarizationSetBy = Automatic
+
+		column StopSaleDate
+			dataType: dateTime
+			formatString: General Date
+			lineageTag: 4081cc55-104e-4a99-a542-157a6a65a99a
+			summarizeBy: none
+			sourceColumn: StopSaleDate
+
+			variation Variation
+				isDefault
+				relationship: d68ed00f-b1c4-4791-a7d5-a67242664c0a
+				defaultHierarchy: LocalDateTable_994f9cd1-020c-4dcf-92a6-d9a6f8b22336.'Hierarquia de datas'
+
+			annotation SummarizationSetBy = Automatic
+
+		column Status
+			dataType: string
+			lineageTag: f7479f31-8757-42b5-83d9-cade8774ca57
+			summarizeBy: none
+			sourceColumn: Status
+
+			annotation SummarizationSetBy = Automatic
+
+		column ImageURL
+			dataType: string
+			lineageTag: 8cf51b22-2086-4e12-a9ac-776f4c80177c
+			summarizeBy: none
+			sourceColumn: ImageURL
+
+			annotation SummarizationSetBy = Automatic
+
+		column ProductURL
+			dataType: string
+			lineageTag: c72a71a3-6679-4e44-89e9-bdce497ec281
+			summarizeBy: none
+			sourceColumn: ProductURL
+
+			annotation SummarizationSetBy = Automatic
+
+		column ETLLoadID
+			dataType: int64
+			formatString: 0
+			lineageTag: c3776115-458b-4f85-913d-5b759c15e15b
+			summarizeBy: count
+			sourceColumn: ETLLoadID
+
+			annotation SummarizationSetBy = Automatic
+
+		column LoadDate
+			dataType: dateTime
+			formatString: General Date
+			lineageTag: 96aa62d0-d07e-4409-9237-a0407afeb434
+			summarizeBy: none
+			sourceColumn: LoadDate
+
+			variation Variation
+				isDefault
+				relationship: c4c8e140-4e45-4c96-8446-f5901d8ddacf
+				defaultHierarchy: LocalDateTable_52b7c8fd-7d88-4ee7-b127-a9cae6e31167.'Hierarquia de datas'
+
+			annotation SummarizationSetBy = Automatic
+
+		column UpdateDate
+			dataType: dateTime
+			formatString: General Date
+			lineageTag: 4f958970-8c43-474a-8c35-9b9dc69dc808
+			summarizeBy: none
+			sourceColumn: UpdateDate
+
+			variation Variation
+				isDefault
+				relationship: e53cda17-8464-4af6-8710-8be5889e0a76
+				defaultHierarchy: LocalDateTable_9dec75b9-38a2-411a-8456-4d19c02b99b4.'Hierarquia de datas'
+
+			annotation SummarizationSetBy = Automatic
+
+		partition DimProduct = m
+			mode: import
+			source =
+					let
+					    Fonte = Sql.Database("LocalHost", "ContosoRetailDW"),
+					    dbo_DimProduct = Fonte{[Schema="dbo",Item="DimProduct"]}[Data]
+					in
+					    dbo_DimProduct
+
+		annotation PBI_ResultType = Table
+
+	table DimScenario
+		lineageTag: 67bcb46b-6fad-423d-9162-5d8765d36479
+
+		column ScenarioKey
+			dataType: int64
+			formatString: 0
+			lineageTag: 055a4dd1-f71f-42c5-8c1e-9445fab48340
+			summarizeBy: none
+			sourceColumn: ScenarioKey
+
+			annotation SummarizationSetBy = Automatic
+
+		column ScenarioLabel
+			dataType: string
+			lineageTag: c86977bf-a222-40dc-a208-fc4aa1426ae2
+			summarizeBy: none
+			sourceColumn: ScenarioLabel
+
+			annotation SummarizationSetBy = Automatic
+
+		column ScenarioName
+			dataType: string
+			lineageTag: 564cf794-2b78-415c-a926-58fc6cf99779
+			summarizeBy: none
+			sourceColumn: ScenarioName
+
+			annotation SummarizationSetBy = Automatic
+
+		column ScenarioDescription
+			dataType: string
+			lineageTag: 5cb1bce1-c90a-48bd-ae7d-003b8e60182c
+			summarizeBy: none
+			sourceColumn: ScenarioDescription
+
+			annotation SummarizationSetBy = Automatic
+
+		column ETLLoadID
+			dataType: int64
+			formatString: 0
+			lineageTag: 31e4b93f-6799-46e3-b6ae-7baec4626857
+			summarizeBy: count
+			sourceColumn: ETLLoadID
+
+			annotation SummarizationSetBy = Automatic
+
+		column LoadDate
+			dataType: dateTime
+			formatString: General Date
+			lineageTag: 2b9eb578-8ad9-4713-9047-1855212f8ef8
+			summarizeBy: none
+			sourceColumn: LoadDate
+
+			variation Variation
+				isDefault
+				relationship: 4b78b8a0-6f3a-4469-948a-ac774f622f0c
+				defaultHierarchy: LocalDateTable_a18709f3-3a3e-4c6f-a8b7-e8a55476dd44.'Hierarquia de datas'
+
+			annotation SummarizationSetBy = Automatic
+
+		column UpdateDate
+			dataType: dateTime
+			formatString: General Date
+			lineageTag: 11b2bb96-4982-423d-bc59-7cd1b92f44d6
+			summarizeBy: none
+			sourceColumn: UpdateDate
+
+			variation Variation
+				isDefault
+				relationship: 37a394e7-45c1-4ec0-9e8f-6901bbe60114
+				defaultHierarchy: LocalDateTable_45cb7b93-ca01-4dcc-bd64-bad21faf48d0.'Hierarquia de datas'
+
+			annotation SummarizationSetBy = Automatic
+
+		partition DimScenario = m
+			mode: import
+			source =
+					let
+					    Fonte = Sql.Database("LocalHost", "ContosoRetailDW"),
+					    dbo_DimScenario = Fonte{[Schema="dbo",Item="DimScenario"]}[Data]
+					in
+					    dbo_DimScenario
+
+		annotation PBI_NavigationStepName = Navegação
+
+		annotation PBI_ResultType = Table
+
+	table DimStore
+		lineageTag: 0451b3e6-9a63-4040-82fb-8a453035239e
+
+		column StoreKey
+			dataType: int64
+			formatString: 0
+			lineageTag: 10e6acab-02d1-4773-9aa4-ed5aaa775770
+			summarizeBy: none
+			sourceColumn: StoreKey
+
+			annotation SummarizationSetBy = Automatic
+
+		column GeographyKey
+			dataType: int64
+			formatString: 0
+			lineageTag: e20859bb-6cf7-4623-8c47-d395f8dc294e
+			summarizeBy: none
+			sourceColumn: GeographyKey
+
+			annotation SummarizationSetBy = Automatic
+
+		column StoreManager
+			dataType: int64
+			formatString: 0
+			lineageTag: b261cc0f-8c35-41e9-9f12-90fa50735a15
+			summarizeBy: sum
+			sourceColumn: StoreManager
+
+			annotation SummarizationSetBy = Automatic
+
+		column StoreType
+			dataType: string
+			lineageTag: 05c1acee-d604-4962-86a5-8a6891a91d59
+			summarizeBy: none
+			sourceColumn: StoreType
+
+			annotation SummarizationSetBy = Automatic
+
+		column StoreName
+			dataType: string
+			lineageTag: dc0860e5-4005-4c36-8865-dccc961ec97f
+			summarizeBy: none
+			sourceColumn: StoreName
+
+			annotation SummarizationSetBy = Automatic
+
+		column StoreDescription
+			dataType: string
+			lineageTag: 04bf2f9e-6056-411b-93e9-92d31f97783f
+			summarizeBy: none
+			sourceColumn: StoreDescription
+
+			annotation SummarizationSetBy = Automatic
+
+		column Status
+			dataType: string
+			lineageTag: 3654233f-efd2-491b-ab81-7b431e3a5d02
+			summarizeBy: none
+			sourceColumn: Status
+
+			annotation SummarizationSetBy = Automatic
+
+		column OpenDate
+			dataType: dateTime
+			formatString: General Date
+			lineageTag: 80fcf5a1-3d0a-4f45-be2e-9546d474506d
+			summarizeBy: none
+			sourceColumn: OpenDate
+
+			variation Variation
+				isDefault
+				relationship: aa8788e5-7e55-40b0-9262-0a6436cfb774
+				defaultHierarchy: LocalDateTable_1d225ca1-8984-457a-b9ff-4abf121c059e.'Hierarquia de datas'
+
+			annotation SummarizationSetBy = Automatic
+
+		column CloseDate
+			dataType: dateTime
+			formatString: General Date
+			lineageTag: ee722575-9bf4-4618-a721-3c76b49b648c
+			summarizeBy: none
+			sourceColumn: CloseDate
+
+			variation Variation
+				isDefault
+				relationship: 2f94c5a1-5668-496c-b4a2-4d5b2a0d36e8
+				defaultHierarchy: LocalDateTable_98774a8d-1087-4207-a470-72620520bd1a.'Hierarquia de datas'
+
+			annotation SummarizationSetBy = Automatic
+
+		column EntityKey
+			dataType: int64
+			formatString: 0
+			lineageTag: de7a2006-407b-40a4-b3d7-07471b15ae93
+			summarizeBy: count
+			sourceColumn: EntityKey
+
+			annotation SummarizationSetBy = Automatic
+
+		column ZipCode
+			dataType: string
+			lineageTag: bb9f19d7-04b1-4f7b-8cc4-4f816cc77d66
+			summarizeBy: none
+			sourceColumn: ZipCode
+
+			annotation SummarizationSetBy = Automatic
+
+		column ZipCodeExtension
+			dataType: string
+			lineageTag: 94840734-095a-4f60-8792-f5bd58b8a208
+			summarizeBy: none
+			sourceColumn: ZipCodeExtension
+
+			annotation SummarizationSetBy = Automatic
+
+		column StorePhone
+			dataType: string
+			lineageTag: b6e21b74-2f85-4fc7-9d48-15f3bf9e8030
+			summarizeBy: none
+			sourceColumn: StorePhone
+
+			annotation SummarizationSetBy = Automatic
+
+		column StoreFax
+			dataType: string
+			lineageTag: 4b7fb4c8-2d9d-4531-9ac7-dd9a440c9290
+			summarizeBy: none
+			sourceColumn: StoreFax
+
+			annotation SummarizationSetBy = Automatic
+
+		column AddressLine1
+			dataType: string
+			lineageTag: df98e3e4-2850-48d0-bf8e-8bb16a287b50
+			summarizeBy: none
+			sourceColumn: AddressLine1
+
+			annotation SummarizationSetBy = Automatic
+
+		column AddressLine2
+			dataType: string
+			lineageTag: ffbb91f1-2784-4df2-9636-e686f8113526
+			summarizeBy: none
+			sourceColumn: AddressLine2
+
+			annotation SummarizationSetBy = Automatic
+
+		column CloseReason
+			dataType: string
+			lineageTag: e306ebd6-8421-404e-991e-41a74eaaa6be
+			summarizeBy: none
+			sourceColumn: CloseReason
+
+			annotation SummarizationSetBy = Automatic
+
+		column EmployeeCount
+			dataType: int64
+			formatString: 0
+			lineageTag: 9b038a83-6678-4ef3-8153-4c112c52bcf9
+			summarizeBy: sum
+			sourceColumn: EmployeeCount
+
+			annotation SummarizationSetBy = Automatic
+
+		column SellingAreaSize
+			dataType: double
+			lineageTag: c63d92ff-51d5-438d-8a05-1fe89f5ab275
+			summarizeBy: sum
+			sourceColumn: SellingAreaSize
+
+			annotation SummarizationSetBy = Automatic
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		column LastRemodelDate
+			dataType: dateTime
+			formatString: General Date
+			lineageTag: 3c4d48c0-6a60-4be6-82af-9e2c0477970a
+			summarizeBy: none
+			sourceColumn: LastRemodelDate
+
+			variation Variation
+				isDefault
+				relationship: a8720719-a5e5-4174-982f-6873801e301e
+				defaultHierarchy: LocalDateTable_2b9049b0-0505-49f1-8386-9ce5f83ea7c1.'Hierarquia de datas'
+
+			annotation SummarizationSetBy = Automatic
+
+		column GeoLocation
+			dataType: string
+			lineageTag: a884a7b8-55cc-4d0d-89c3-901e92422a66
+			summarizeBy: none
+			sourceColumn: GeoLocation
+
+			annotation SummarizationSetBy = Automatic
+
+		column Geometry
+			dataType: string
+			lineageTag: 09016ce0-46f1-4266-ad2e-7bb7650fb203
+			summarizeBy: none
+			sourceColumn: Geometry
+
+			annotation SummarizationSetBy = Automatic
+
+		column ETLLoadID
+			dataType: int64
+			formatString: 0
+			lineageTag: ca0538c1-671b-41c7-939d-251b6d4bb107
+			summarizeBy: count
+			sourceColumn: ETLLoadID
+
+			annotation SummarizationSetBy = Automatic
+
+		column LoadDate
+			dataType: dateTime
+			formatString: General Date
+			lineageTag: a1c9f91c-009e-4763-8d77-84ee30ad0f28
+			summarizeBy: none
+			sourceColumn: LoadDate
+
+			variation Variation
+				isDefault
+				relationship: d63e5c53-0833-4cf3-a416-e4c12485599e
+				defaultHierarchy: LocalDateTable_62a05dc9-c3e9-4aae-9da9-8ebe72195ded.'Hierarquia de datas'
+
+			annotation SummarizationSetBy = Automatic
+
+		column UpdateDate
+			dataType: dateTime
+			formatString: General Date
+			lineageTag: a7d8ea3f-c60c-4e16-8ab2-2d775cfb06aa
+			summarizeBy: none
+			sourceColumn: UpdateDate
+
+			variation Variation
+				isDefault
+				relationship: 87c97aca-2b11-4420-9235-e23eda24b06d
+				defaultHierarchy: LocalDateTable_45a7c587-6cab-41b9-b85a-500cb567205e.'Hierarquia de datas'
+
+			annotation SummarizationSetBy = Automatic
+
+		partition DimStore = m
+			mode: import
+			source =
+					let
+					    Fonte = Sql.Database("LocalHost", "ContosoRetailDW"),
+					    dbo_DimStore = Fonte{[Schema="dbo",Item="DimStore"]}[Data]
+					in
+					    dbo_DimStore
+
+		annotation PBI_ResultType = Table
+
+	table FactSales
+		lineageTag: 7423dbb1-3ecb-48ac-b990-5987dba64d26
+
+		column SalesKey
+			dataType: string
+			lineageTag: 6e4a4bb3-1f6f-4347-929a-bb790869b19e
+			summarizeBy: none
+			sourceColumn: SalesKey
+
+			annotation SummarizationSetBy = Automatic
+
+		column DateKey
+			dataType: dateTime
+			formatString: Short Date
+			lineageTag: 4593736a-855c-4513-8df7-baab196862b6
+			summarizeBy: none
+			sourceColumn: DateKey
+
+			annotation SummarizationSetBy = Automatic
+
+			annotation UnderlyingDateTimeDataType = Date
+
+		column channelKey
+			dataType: string
+			lineageTag: b7558131-d8de-45df-a9b2-bc49cd70d1a6
+			summarizeBy: none
+			sourceColumn: channelKey
+
+			annotation SummarizationSetBy = Automatic
+
+		column StoreKey
+			dataType: string
+			lineageTag: 5bf788e2-7411-44b3-884b-a9870daa40f8
+			summarizeBy: none
+			sourceColumn: StoreKey
+
+			annotation SummarizationSetBy = Automatic
+
+		column ProductKey
+			dataType: string
+			lineageTag: a35045b9-9c45-4276-a071-d6873ae49d07
+			summarizeBy: none
+			sourceColumn: ProductKey
+
+			annotation SummarizationSetBy = Automatic
+
+		column UnitCost
+			dataType: decimal
+			formatString: "R$"\ #,0.###############;-"R$"\ #,0.###############;"R$"\ #,0.###############
+			lineageTag: d75d90a5-be44-4023-b99e-552a112c9025
+			summarizeBy: sum
+			sourceColumn: UnitCost
+
+			annotation SummarizationSetBy = Automatic
+
+			annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+		column UnitPrice
+			dataType: decimal
+			formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+			lineageTag: 3a9b9b65-7d76-459b-9a5d-00688b0e9e39
+			summarizeBy: sum
+			sourceColumn: UnitPrice
+
+			annotation SummarizationSetBy = Automatic
+
+			annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+		column SalesQuantity
+			dataType: int64
+			formatString: 0
+			lineageTag: 89bfbc06-797c-4f9d-8de6-1a5a1739f86f
+			summarizeBy: sum
+			sourceColumn: SalesQuantity
+
+			annotation SummarizationSetBy = Automatic
+
+		column ReturnQuantity
+			dataType: int64
+			formatString: 0
+			lineageTag: 45cbe3ed-c896-400a-b429-2bc5d1adce1e
+			summarizeBy: sum
+			sourceColumn: ReturnQuantity
+
+			annotation SummarizationSetBy = Automatic
+
+		column ReturnAmount
+			dataType: decimal
+			formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+			lineageTag: 6a2455a9-64ce-4167-9759-be25c480c256
+			summarizeBy: sum
+			sourceColumn: ReturnAmount
+
+			annotation SummarizationSetBy = Automatic
+
+			annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+		column TotalCost
+			dataType: decimal
+			formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+			lineageTag: 6f8df2d6-365c-48fd-aa0f-e837965d9560
+			summarizeBy: sum
+			sourceColumn: TotalCost
+
+			annotation SummarizationSetBy = Automatic
+
+			annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+		column SalesAmount
+			dataType: decimal
+			formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+			lineageTag: 19238957-6f58-4fdc-a3ff-95047b57a8eb
+			summarizeBy: sum
+			sourceColumn: SalesAmount
+
+			annotation SummarizationSetBy = Automatic
+
+			annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+		partition FactSales = m
+			mode: import
+			source =
+					let
+					    Fonte = Sql.Database("LocalHost", "ContosoRetailDW", [Query="SELECT [SalesKey]#(lf)      ,[DateKey]#(lf)      ,[channelKey]#(lf)      ,[StoreKey]#(lf)      ,[ProductKey]#(lf)      ,[UnitCost]#(lf)      ,[UnitPrice]#(lf)      ,[SalesQuantity]#(lf)      ,[ReturnQuantity]#(lf)      ,[ReturnAmount]#(lf)      ,[TotalCost]#(lf)      ,[SalesAmount]#(lf)  FROM [ContosoRetailDW].[dbo].[FactSales]"]),
+					    #"Tipo Alterado" = Table.TransformColumnTypes(Fonte,{{"SalesKey", type text}, {"channelKey", type text}, {"StoreKey", type text}, {"ProductKey", type text}, {"UnitCost", Currency.Type}, {"UnitPrice", Currency.Type}, {"SalesQuantity", Int64.Type}, {"ReturnQuantity", Int64.Type}, {"ReturnAmount", Currency.Type}, {"TotalCost", Currency.Type}, {"SalesAmount", Currency.Type}, {"DateKey", type date}})
+					in
+					    #"Tipo Alterado"
+
+		annotation PBI_NavigationStepName = Navegação
+
+		annotation PBI_ResultType = Table
+
+	table FactSalesQuota
+		lineageTag: 06fd387e-75e9-47b4-a965-5eed776e5ac8
+
+		column SalesQuotaKey
+			dataType: string
+			lineageTag: ddc748fe-2f03-4df3-93c4-872e06f9add4
+			summarizeBy: none
+			sourceColumn: SalesQuotaKey
+
+			annotation SummarizationSetBy = Automatic
+
+		column ChannelKey
+			dataType: string
+			lineageTag: 7ed378e8-d2d9-44ad-ab84-4e5e8b63d343
+			summarizeBy: none
+			sourceColumn: ChannelKey
+
+			annotation SummarizationSetBy = Automatic
+
+		column StoreKey
+			dataType: string
+			lineageTag: 567eab58-1ee9-4e55-92c6-bd13093796e4
+			summarizeBy: none
+			sourceColumn: StoreKey
+
+			annotation SummarizationSetBy = Automatic
+
+		column ProductKey
+			dataType: string
+			lineageTag: bfd2711c-0c16-452f-abaf-c712e46eff40
+			summarizeBy: none
+			sourceColumn: ProductKey
+
+			annotation SummarizationSetBy = Automatic
+
+		column DateKey
+			dataType: dateTime
+			formatString: Long Date
+			lineageTag: d3b4a15f-99c3-4921-97e9-27f7473a5627
+			summarizeBy: none
+			sourceColumn: DateKey
+
+			annotation SummarizationSetBy = Automatic
+
+			annotation UnderlyingDateTimeDataType = Date
+
+		column CurrencyKey
+			dataType: string
+			lineageTag: 8ee01cf5-cf3b-4b70-b19e-93234d8b42f4
+			summarizeBy: none
+			sourceColumn: CurrencyKey
+
+			annotation SummarizationSetBy = Automatic
+
+		column ScenarioKey
+			dataType: string
+			lineageTag: 5da6b9b6-733f-4999-b0a1-cfbdf02248e2
+			summarizeBy: none
+			sourceColumn: ScenarioKey
+
+			annotation SummarizationSetBy = Automatic
+
+		column SalesQuantityQuota
+			dataType: int64
+			formatString: 0
+			lineageTag: 1ccb622b-d210-476f-8f71-359c932ddcbe
+			summarizeBy: sum
+			sourceColumn: SalesQuantityQuota
+
+			annotation SummarizationSetBy = Automatic
+
+		column SalesAmountQuota
+			dataType: decimal
+			formatString: "R$"\ #,0.###############;-"R$"\ #,0.###############;"R$"\ #,0.###############
+			lineageTag: c5809249-6190-4285-a677-a660adfb4ff9
+			summarizeBy: sum
+			sourceColumn: SalesAmountQuota
+
+			annotation SummarizationSetBy = Automatic
+
+			annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+		column GrossMarginQuota
+			dataType: decimal
+			formatString: "R$"\ #,0.###############;-"R$"\ #,0.###############;"R$"\ #,0.###############
+			lineageTag: 59ec94f1-b1b5-468f-b3b2-7c58a815323f
+			summarizeBy: sum
+			sourceColumn: GrossMarginQuota
+
+			annotation SummarizationSetBy = Automatic
+
+			annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+		partition FactSalesQuota = m
+			mode: import
+			source =
+					let
+					    Fonte = Sql.Database("LocalHost", "ContosoRetailDW", [Query="SELECT [SalesQuotaKey]#(lf)      ,[ChannelKey]#(lf)      ,[StoreKey]#(lf)      ,[ProductKey]#(lf)      ,[DateKey]#(lf)      ,[CurrencyKey]#(lf)      ,[ScenarioKey]#(lf)      ,[SalesQuantityQuota]#(lf)      ,[SalesAmountQuota]#(lf)      ,[GrossMarginQuota]#(lf)  FROM [ContosoRetailDW].[dbo].[FactSalesQuota]"]),
+					    #"Tipo Alterado" = Table.TransformColumnTypes(Fonte,{{"SalesQuotaKey", type text}, {"ChannelKey", type text}, {"StoreKey", type text}, {"ProductKey", type text}, {"DateKey", type date}, {"CurrencyKey", type text}, {"ScenarioKey", type text}, {"SalesQuantityQuota", Int64.Type}, {"SalesAmountQuota", Currency.Type}, {"GrossMarginQuota", Currency.Type}})
+					in
+					    #"Tipo Alterado"
+
+		annotation PBI_NavigationStepName = Navegação
+
+		annotation PBI_ResultType = Table
+

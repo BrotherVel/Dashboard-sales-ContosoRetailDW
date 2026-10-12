@@ -1,0 +1,178 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/report/3.3.0/schema.json",
+  "themeCollection": {
+    "baseTheme": {
+      "name": "CY26SU02",
+      "reportVersionAtImport": {
+        "visual": "2.6.0",
+        "report": "3.1.0",
+        "page": "2.3.0"
+      },
+      "type": "SharedResources"
+    },
+    "customTheme": {
+      "name": "DarkBlue-Teme6783892701786894.json",
+      "reportVersionAtImport": {
+        "visual": "2.7.0",
+        "report": "3.2.0",
+        "page": "2.3.1"
+      },
+      "type": "RegisteredResources"
+    }
+  },
+  "objects": {
+    "section": [
+      {
+        "properties": {
+          "verticalAlignment": {
+            "expr": {
+              "Literal": {
+                "Value": "'Top'"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "outspacePane": [
+      {
+        "properties": {
+          "expanded": {
+            "expr": {
+              "Literal": {
+                "Value": "true"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "resourcePackages": [
+    {
+      "name": "SharedResources",
+      "type": "SharedResources",
+      "items": [
+        {
+          "name": "CY26SU02",
+          "path": "BaseThemes/CY26SU02.json",
+          "type": "BaseTheme"
+        }
+      ]
+    },
+    {
+      "name": "RegisteredResources",
+      "type": "RegisteredResources",
+      "items": [
+        {
+          "name": "16099760753722322.png",
+          "path": "16099760753722322.png",
+          "type": "Image"
+        },
+        {
+          "name": "29582561925645503.png",
+          "path": "29582561925645503.png",
+          "type": "Image"
+        },
+        {
+          "name": "33149055069476826.png",
+          "path": "33149055069476826.png",
+          "type": "Image"
+        },
+        {
+          "name": "4878328341699081.png",
+          "path": "4878328341699081.png",
+          "type": "Image"
+        },
+        {
+          "name": "56574752141328293.png",
+          "path": "56574752141328293.png",
+          "type": "Image"
+        },
+        {
+          "name": "66055326822132058.png",
+          "path": "66055326822132058.png",
+          "type": "Image"
+        },
+        {
+          "name": "732244907065171513.png",
+          "path": "732244907065171513.png",
+          "type": "Image"
+        },
+        {
+          "name": "83400272224535277.png",
+          "path": "83400272224535277.png",
+          "type": "Image"
+        },
+        {
+          "name": "DarkBlue-Teme6783892701786894.json",
+          "path": "DarkBlue-Teme6783892701786894.json",
+          "type": "CustomTheme"
+        },
+        {
+          "name": "papel_de_parede0893610433987112.png",
+          "path": "papel_de_parede0893610433987112.png",
+          "type": "Image"
+        },
+        {
+          "name": "papel_de_parede1406513733692647.png",
+          "path": "papel_de_parede1406513733692647.png",
+          "type": "Image"
+        },
+        {
+          "name": "papel_de_parede16611449657606492.png",
+          "path": "papel_de_parede16611449657606492.png",
+          "type": "Image"
+        },
+        {
+          "name": "papel_de_parede2535115930492.png",
+          "path": "papel_de_parede2535115930492.png",
+          "type": "Image"
+        },
+        {
+          "name": "papel_de_parede2658324325405257.png",
+          "path": "papel_de_parede2658324325405257.png",
+          "type": "Image"
+        },
+        {
+          "name": "papel_de_parede46133739748396685.png",
+          "path": "papel_de_parede46133739748396685.png",
+          "type": "Image"
+        },
+        {
+          "name": "papel_de_parede7380948423950963.png",
+          "path": "papel_de_parede7380948423950963.png",
+          "type": "Image"
+        },
+        {
+          "name": "papel_de_parede9352668769881163.png",
+          "path": "papel_de_parede9352668769881163.png",
+          "type": "Image"
+        },
+        {
+          "name": "Pib_america_do_norte_entre_2003611093378206147.png",
+          "path": "Pib_america_do_norte_entre_2003611093378206147.png",
+          "type": "Image"
+        },
+        {
+          "name": "Pib_europa_e_asia_central_entr5662241586304666.png",
+          "path": "Pib_europa_e_asia_central_entr5662241586304666.png",
+          "type": "Image"
+        },
+        {
+          "name": "Pib_mundial_entre_2005_e_20095145948914205352.png",
+          "path": "Pib_mundial_entre_2005_e_20095145948914205352.png",
+          "type": "Image"
+        }
+      ]
+    }
+  ],
+  "settings": {
+    "useStylableVisualContainerHeader": true,
+    "exportDataMode": "AllowSummarized",
+    "defaultDrillFilterOtherVisuals": true,
+    "allowChangeFilterTypes": true,
+    "useEnhancedTooltips": true,
+    "useDefaultAggregateDisplayName": true
+  }
+}

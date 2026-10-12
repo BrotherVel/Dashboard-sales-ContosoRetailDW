@@ -1,0 +1,17 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "8fbf670b9df5eeeb7c8b",
+  "position": {
+    "x": 5.9383259911894228,
+    "y": 7,
+    "z": 24501,
+    "height": 667,
+    "width": 385.0616740088106,
+    "tabOrder": 25000
+  },
+  "visualGroup": {
+    "displayName": "Filtros Visão Geral",
+    "groupMode": "ScaleMode"
+  },
+  "isHidden": true
+}

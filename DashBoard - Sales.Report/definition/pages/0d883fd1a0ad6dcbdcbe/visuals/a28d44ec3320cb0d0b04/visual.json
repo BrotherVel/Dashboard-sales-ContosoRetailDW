@@ -1,0 +1,76 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "a28d44ec3320cb0d0b04",
+  "position": {
+    "x": 561.016333938294,
+    "y": 446.02540834845735,
+    "z": 23000,
+    "height": 40.653357531760435,
+    "width": 45.2994555353902,
+    "tabOrder": 23000
+  },
+  "visual": {
+    "visualType": "actionButton",
+    "objects": {
+      "icon": [
+        {
+          "properties": {
+            "shapeType": {
+              "expr": {
+                "Literal": {
+                  "Value": "'information'"
+                }
+              }
+            },
+            "lineColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 7,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "visualLink": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "type": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Bookmark'"
+                }
+              }
+            },
+            "tooltip": {
+              "expr": {
+                "Literal": {
+                  "Value": "'ATENÇÃO | A variação total do período reflete o impacto final acumulado entre 2007 e 2009. A visualização em cascata, por sua vez, detalha a taxa de variação marginal de cada ciclo em relação ao ano imediatamente anterior, demonstrando a dinâmica e a velocidade da queda em cada etapa. Por tratarem de bases diferentes, as taxas percentuais anuais não se somam diretamente, mas representam a mesma evolução real.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "howCreated": "InsertVisualButton"
+}

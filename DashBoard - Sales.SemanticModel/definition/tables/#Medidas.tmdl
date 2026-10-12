@@ -1,0 +1,63 @@
+table #Medidas
+	lineageTag: 5eba830f-03c9-49eb-bd3d-137cd67af89a
+
+	measure 'Sales 2' = SUM(FactSales[SalesAmount]) - SUM(FactSales[ReturnAmount])
+		formatString: "R$"\ #,0.###############;-"R$"\ #,0.###############;"R$"\ #,0.###############
+		lineageTag: 5ca36f84-c431-4649-9885-416aa0de1eaf
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure 'Sales AVG 2' = ```
+			
+			CALCULATE(
+			    AVERAGE(FactSales[SalesAmount]),
+			    ALL(FactSales[SalesAmount])    
+			)
+			```
+		formatString: "R$"\ #,0.###############;-"R$"\ #,0.###############;"R$"\ #,0.###############
+		lineageTag: dd6f9028-36a9-4303-9683-0bf001a3ff73
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure 'Total Cost 2' = SUM(FactSales[TotalCost])
+		formatString: "R$"\ #,0.###############;-"R$"\ #,0.###############;"R$"\ #,0.###############
+		lineageTag: 48a24e92-8a89-4708-bdad-3f2520555a1f
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure 'product sales % 2' = ```
+			
+			VAR Total =
+			    CALCULATE(
+			        [Sales 2],
+			        ALL(DimProduct[ProductName])
+			    )
+			RETURN 
+			    DIVIDE([Sales 2], Total)
+			```
+		lineageTag: 466131cb-eb49-414c-b518-7f2cec54b14d
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Qtde de lojas' = ```
+			COUNT(DimStore[StoreKey]) 
+			```
+		formatString: 0
+		lineageTag: 41c9f512-728c-4537-9bc5-a86188a398f7
+
+	column Value
+		isHidden
+		formatString: 0
+		lineageTag: b54ee530-175b-41de-b536-676d247f1355
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Value]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition #Medidas = calculated
+		mode: import
+		source = {1}
+
+	annotation PBI_Id = 453ccb5ba6b34f9e8e6a732b679b1b14
+

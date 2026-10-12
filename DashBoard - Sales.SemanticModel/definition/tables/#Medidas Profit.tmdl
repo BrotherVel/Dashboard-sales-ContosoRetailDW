@@ -1,0 +1,428 @@
+table '#Medidas Profit'
+	lineageTag: 90edb3da-f927-4ece-a6f9-5eac071b9a49
+
+	measure 'Sales Profit' =
+			
+			VAR COSTS = SUM(FactSales[ReturnAmount]) + SUM(FactSales[TotalCost])
+			RETURN
+			SUM(FactSales[SalesAmount]) - COSTS
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 8da950fd-e9c3-4bf7-8e0b-a7e79394d609
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-US"}
+
+	measure 'Sales Profit YTD' =
+			
+			TOTALYTD(
+			    [Sales Profit],
+			    DimDate[Datekey]
+			)
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 658ab850-1ff0-417a-8611-3e9bfb429c8e
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-US"}
+
+	measure 'Sales Profit MTD' =
+			
+			TOTALMTD(
+			    [Sales Profit],
+			    DimDate[Datekey]
+			)
+		formatString: "R$"\ #,0.###############;-"R$"\ #,0.###############;"R$"\ #,0.###############
+		lineageTag: c34435f2-1938-4adf-b1b9-754aa0e9b0d7
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure Selected_Display_SalesProfit = ```
+			
+			VAR SP = SELECTEDVALUE(Selected_Display[Display])
+			RETURN 
+			IF(
+			    SP = " Sales",
+			    '#Medidas Profit'[Sales Profit],
+			    IF(
+			        SP = " Sales Year To Date",
+			        '#Medidas Profit'[Sales Profit YTD]
+			    )
+			) 
+			
+			```
+		formatString: "R$"\ #,0.###############;-"R$"\ #,0.###############;"R$"\ #,0.###############
+		lineageTag: 071d6aba-dafe-43f7-8874-89773b096657
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure 'Top 1 Profit Region Name' =
+			
+			CALCULATE(
+			    VALUES(DimGeography[RegionCountryName]),
+			    FILTER(
+			        ALL(DimGeography[RegionCountryName]),
+			        RANKX(
+			            ALL(DimGeography[RegionCountryName]),
+			            [Sales Profit],,
+			            DESC
+			        ) = 1
+			    )
+			)
+		lineageTag: 3dc239e2-54e3-4314-9003-2c03473619e6
+
+	measure 'Rank Profit Region' = ```
+			
+			VAR Ra = 
+			    RANKX(
+			        ALL(DimGeography[RegionCountryName]),
+			        [Sales Profit],,
+			        DESC
+			    )
+			RETURN
+			IF('#Medidas Profit'[Sales Profit], Ra)
+			```
+		formatString: 0
+		lineageTag: eac1d9f7-02d2-49b3-8ddc-b0165c8264a3
+
+	measure 'Top *10 Profit Region Sales profit' =
+			
+			IF(
+			    [Rank Profit Region] <= 10,
+			    [Sales Profit]
+			)
+		formatString: "R$"\ #,0.###############;-"R$"\ #,0.###############;"R$"\ #,0.###############
+		lineageTag: 2080d5f6-8805-4db8-800a-c9a2e3c2b9d0
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure 'Top 1 Profit Region' =
+			
+			CALCULATE(
+			    [Sales Profit],
+			    FILTER(
+			        ALL(DimGeography[RegionCountryName]),
+			        RANKX(
+			            ALL(DimGeography[RegionCountryName]),
+			            [Sales Profit],,
+			            DESC
+			        ) = 1
+			    )
+			)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 4e83d3eb-2a17-418e-aa78-8e879d6ce126
+
+	measure 'Top 3 Profit Region' =
+			
+			VAR t3 =
+			    CALCULATE(
+			        [Sales Profit],
+			        FILTER(
+			            ALL(DimGeography[RegionCountryName]),
+			            RANKX(
+			                ALL(DimGeography[RegionCountryName]),
+			                [Sales Profit],,
+			                DESC
+			            ) = 3
+			        )
+			    )
+			RETURN
+			    IF(t3 > 0, t3, "None")
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: a91ebfd5-19e0-48b2-b14b-779fdd20df25
+
+	measure 'Top 2 Profit Region Name' =
+			
+			VAR t2 =
+			    CALCULATE(
+			        VALUES(DimGeography[RegionCountryName]),
+			        FILTER(
+			            ALL(DimGeography[RegionCountryName]),
+			            RANKX(
+			                ALL(DimGeography[RegionCountryName]),
+			                [Sales Profit],,
+			                DESC
+			            ) = 2
+			        )
+			    )
+			RETURN
+			    IF([Top 2 Profit Region] <> "None", t2, "None")
+		lineageTag: c73015f4-7dd6-494d-9e33-ac01b1231f36
+
+	measure 'Top 3 Profit Region Name' =
+			
+			VAR t3 =
+			    CALCULATE(
+			        VALUES(DimGeography[RegionCountryName]),
+			        FILTER(
+			            ALL(DimGeography[RegionCountryName]),
+			            RANKX(
+			                ALL(DimGeography[RegionCountryName]),
+			                [Sales Profit],,
+			                DESC
+			            ) = 3
+			        )
+			    )
+			RETURN
+			    IF([Top 3 Profit Region] <> "None", t3, "None")
+		lineageTag: 19ebd9bc-f932-423b-9e1c-040817c84820
+
+	measure 'Top 2 Profit Region' =
+			
+			VAR t2 =
+			    CALCULATE(
+			        [Sales Profit],
+			        FILTER(
+			            ALL(DimGeography[RegionCountryName]),
+			            RANKX(
+			                ALL(DimGeography[RegionCountryName]),
+			                [Sales Profit],,
+			                DESC
+			            ) = 2
+			        )
+			    )
+			RETURN
+			    IF(t2 > 0, t2, "None")
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: e7226034-e938-42dc-9795-2c3dcf1754f2
+
+	measure 'Rank profit Region top 10' =
+			
+			IF(
+			    [Rank Profit Region] <= 10,
+			    [Rank Profit Region]
+			)
+		formatString: 0
+		lineageTag: 08ba5f45-9398-4040-9af7-7ec4739496af
+
+	measure 'product profit %' = ```
+			
+			VAR Total =
+			    CALCULATE(
+			        [Sales Profit],
+			        ALL(DimProduct[ProductName])
+			    )
+			RETURN 
+			    DIVIDE([Sales Profit], Total)
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 040c8a87-3092-486a-b264-ce40198c7d9b
+
+	measure 'profit for channel %' = ```
+			
+			VAR Total =
+			    CALCULATE(
+			        [Sales Profit],
+			        ALL(DimChannel[ChannelName])
+			    )
+			RETURN 
+			    DIVIDE([Sales Profit], Total)
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: dd15e539-a932-4649-a269-efddceff2169
+
+	measure '% flutuação de total de profit do primeiro ano e ultimo ano' = ```
+			
+			VAR SFY = 
+			    CALCULATE(
+			        [Sales Profit],
+			        FILTER(
+			            VALUES(DimDate[year]),
+			            DimDate[year] = 2007
+			        )
+			    )
+			VAR SLY =
+			        CALCULATE(
+			        [Sales Profit],
+			        FILTER(
+			            VALUES(DimDate[year]),
+			            DimDate[year] = 2009
+			        )
+			    )
+			RETURN DIVIDE(SLY - SFY, SFY)
+			```
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: acfe3225-6ac8-4b8f-85a4-c874b6902298
+
+	measure 'Proporção de profit em lojas físicas por região' =
+			
+			CALCULATE(
+			    DIVIDE([Sales Profit], COUNT(DimStore[StoreKey])),
+			    FILTER(
+			        VALUES(DimChannel[ChannelName]),
+			        DimChannel[ChannelName] = "store"
+			    )
+			)
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 4162d4c3-e9cf-4b39-9cad-03e7d56676ea
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Sales Profit % in Sales' = DIVIDE([Sales Profit], [sales 2])
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: d6479132-306f-4a23-818f-b004ea2c1a55
+
+	measure 'Proporção de profit em lojas por região' = ```
+			DIVIDE([Sales Profit], COUNT(DimStore[StoreKey]))
+			
+			
+			```
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: e9667bc8-d7fb-41f4-bad6-8d0808a1ea7e
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-US"}
+
+	measure 'Média por mÊs de profit' =
+			
+			AVERAGEX(
+			    FILTER(
+			        ADDCOLUMNS(
+			            CROSSJOIN(
+			                VALUEs(DimDate[year]),
+			                VALUEs(DimDate[Month Abrev])
+			            ),
+			            "Profit",
+			            [Sales Profit]
+			        ),
+			        NOT(ISBLANK([Sales Profit]))
+			    ),
+			    [Sales Profit]
+			)
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 3699d081-c882-44fb-b3aa-06e4c697f86a
+
+	measure 'Média por ano de profit' =
+			
+			AVERAGEX(
+			    FILTER(
+			        ADDCOLUMNS(
+			            VALUES(DimDate[year]),
+			            "Profit",
+			            [Sales Profit]
+			        ),
+			        NOT(ISBLANK([Sales Profit]))
+			    ),
+			    [Sales Profit]
+			)
+		formatString: "R$"\ #,0.###############;-"R$"\ #,0.###############;"R$"\ #,0.###############
+		lineageTag: febec078-351c-47bb-9401-7352aeb9471e
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure 'Diferença de lucro total entre os anos' =
+			
+			VAR MoM =
+			CALCULATE(
+			    [Sales Profit],
+			    SAMEPERIODLASTYEAR(DimDate[Datekey])
+			)
+			RETURN [Sales Profit] - MoM
+		formatString: 0
+		lineageTag: 0795bcd9-ff1d-4c24-b3a0-57539f2429a1
+
+	measure 'Diferença de lucro total entre os anos %' = ```
+			
+			VAR AnoAnterior =
+			    CALCULATE(
+			        [Sales Profit],
+			        SAMEPERIODLASTYEAR(DimDate[Datekey])
+			    )
+			
+			RETURN
+			if( 
+			    AnoAnterior > 0,
+			    DIVIDE(
+			        [Sales Profit] - AnoAnterior,
+			        AnoAnterior
+			    ),
+			    0
+			)
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 9cd6c35d-f044-496e-9174-6d90cf718571
+
+	measure 'Product Profit camera' = ```
+			
+			CALCULATE(
+			    [Sales Profit],
+			    FILTER(
+			        DimProduct,
+			        CONTAINSSTRING(DimProduct[ProductName], "Camera")
+			    )
+			)
+			
+			
+			```
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 7b143995-7aa8-4d4f-a049-70653663d7d9
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-US"}
+
+	measure 'Product Profit Projector' =
+			
+			CALCULATE(
+			    [Sales Profit],
+			    FILTER(
+			        DimProduct,
+			        CONTAINSSTRING(DimProduct[ProductName], "Projector")
+			    )
+			)
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 7da7ac76-d461-42b4-9b9f-4cf01799ad9f
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-US"}
+
+	measure 'Product Profit Refrigerator' =
+			
+			CALCULATE(
+			    [Sales Profit],
+			    FILTER(
+			        DimProduct,
+			        CONTAINSSTRING(DimProduct[ProductName], "Refrigerator")
+			    )
+			)
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: f1427f77-7f22-4013-95e9-a48336baae28
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-US"}
+
+	measure 'Product Profit outros produtos' = ```
+			
+			IF(
+			    [Product Profit camera] <= 0 && [Product Profit Projector] <= 0 && [Product Profit Refrigerator] <= 0,
+			    [Sales Profit] 
+			)
+			
+			```
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: ee4eae44-dcc9-4334-9e67-0c5d87935b5f
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-US"}
+
+	measure 'Channel Profit %' = ```
+			
+			VAR Total =
+			    CALCULATE(
+			        [Sales Profit],
+			        ALL(DimChannel[ChannelName])
+			    )
+			RETURN 
+			    DIVIDE([Sales Profit], Total)
+			
+			```
+		formatString: 0%;-0%;0%
+		lineageTag: 04e7fbe5-5f86-44fb-955c-c00735966839
+
+	column Value
+		isHidden
+		formatString: 0
+		lineageTag: 591433f6-4af9-4892-a419-fcd8b8056360
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Value]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition '#Medidas Profit' = calculated
+		mode: import
+		source = {1}
+
+	annotation PBI_Id = 849ae1e82e1145d6baaf4a2fd011ecd0
+

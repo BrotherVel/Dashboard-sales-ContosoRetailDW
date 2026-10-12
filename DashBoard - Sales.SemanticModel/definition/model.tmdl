@@ -1,0 +1,28 @@
+model Model
+	culture: pt-BR
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: pt-BR
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["FactSales","DimChannel","DimDate","DimStore","DimGeography","DimProduct","DimProductCategory","DimProductSubcategory","Selected_Display"]
+
+annotation PBI_ProTooling = ["DaxQueryView_Desktop","TMDLView_Desktop","DevMode"]
+
+ref table FactSales
+ref table DateTableTemplate_54007a55-cc5d-49d9-b1b3-7b6ad667b8cf
+ref table DimDate
+ref table LocalDateTable_64583c1a-3301-40b3-a9fb-6e0bcc499fdd
+ref table DimStore
+ref table DimChannel
+ref table DimProduct
+ref table DimGeography
+ref table '#Medidas Profit'
+ref table Selected_Display
+ref table #Medidas
+
+ref cultureInfo pt-BR
+

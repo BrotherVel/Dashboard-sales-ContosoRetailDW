@@ -1,0 +1,56 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "d963d25ac02c1b0eceb5",
+  "position": {
+    "x": 790.77856420626892,
+    "y": 355.91506572295248,
+    "z": 3000,
+    "height": 140.42718446601941,
+    "width": 397.66990291262135,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "#Medidas Profit"
+                    }
+                  },
+                  "Property": "Proporção de profit em lojas físicas por região"
+                }
+              },
+              "queryRef": "#Medidas Sales.Proporção de vendas por região",
+              "nativeQueryRef": "Proporção de profit em lojas físicas por região"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "#Medidas Profit"
+                  }
+                },
+                "Property": "Proporção de profit em lojas físicas por região"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

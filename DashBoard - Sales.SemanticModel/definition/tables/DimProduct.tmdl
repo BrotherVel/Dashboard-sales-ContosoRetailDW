@@ -1,0 +1,124 @@
+table DimProduct
+	lineageTag: ba7d003f-6b69-451b-9fb3-7010b9a1fe27
+
+	column ProductKey
+		dataType: string
+		lineageTag: 57e30ea4-6032-4a97-bc87-42c5066e2c99
+		summarizeBy: none
+		sourceColumn: ProductKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductName
+		dataType: string
+		lineageTag: e1df11c0-03c5-4de8-9f0e-b098eb16d547
+		summarizeBy: none
+		sourceColumn: ProductName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductDescription
+		dataType: string
+		lineageTag: 8f0ed4a7-479e-47ea-9fd4-9b148abcedd0
+		summarizeBy: none
+		sourceColumn: ProductDescription
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductSubcategoryKey
+		dataType: string
+		lineageTag: d1016aa4-ddd5-46f9-bb22-487a7bf1ac2c
+		summarizeBy: none
+		sourceColumn: ProductSubcategoryKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column BrandName
+		dataType: string
+		lineageTag: bfd7b178-649b-4829-80a8-1e6400ce6773
+		summarizeBy: none
+		sourceColumn: BrandName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ClassName
+		dataType: string
+		lineageTag: d6d91aaa-fe83-4339-bea9-f95ec4b20de3
+		summarizeBy: none
+		sourceColumn: ClassName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Weight
+		dataType: double
+		lineageTag: caf6c4a1-777a-422d-abba-e9fa36ab65e5
+		summarizeBy: none
+		sourceColumn: Weight
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column StockTypeName
+		dataType: string
+		lineageTag: 944f8bb9-c76e-4406-bf21-e499c3838d9f
+		summarizeBy: none
+		sourceColumn: StockTypeName
+
+		annotation SummarizationSetBy = Automatic
+
+	column UnitCost
+		dataType: decimal
+		formatString: "R$"\ #,0.###############;-"R$"\ #,0.###############;"R$"\ #,0.###############
+		lineageTag: 800d9f36-64fb-4080-b334-afb1c5548d94
+		summarizeBy: none
+		sourceColumn: UnitCost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	column UnitPrice
+		dataType: decimal
+		formatString: "R$"\ #,0.###############;-"R$"\ #,0.###############;"R$"\ #,0.###############
+		lineageTag: 197cafdf-0e24-4fdd-bef3-7490b80ac40f
+		summarizeBy: none
+		sourceColumn: UnitPrice
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	column ProductSubcategoryName
+		dataType: string
+		lineageTag: a81e9a51-232a-41a1-aab3-c12abd868df4
+		summarizeBy: none
+		sourceColumn: ProductSubcategoryName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductCategoryName
+		dataType: string
+		lineageTag: 096cfe91-2028-4c06-9b10-f8e7a6326216
+		summarizeBy: none
+		sourceColumn: ProductCategoryName
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimProduct = m
+		mode: import
+		source =
+				let
+				    Fonte = Sql.Database("LocalHost", "ContosoRetailDW", [Query="SELECT [ProductKey]#(lf)      ,[ProductName]#(lf)      ,[ProductDescription]#(lf)      ,[ProductSubcategoryKey]#(lf)      ,[BrandName]#(lf)      ,[ClassName]#(lf)      ,[Weight]#(lf)      ,[StockTypeName]#(lf)      ,[UnitCost]#(lf)      ,[UnitPrice]#(lf)  FROM [ContosoRetailDW].[dbo].[DimProduct]"]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(Fonte,{{"ProductKey", type text}, {"ProductSubcategoryKey", type text}, {"UnitCost", Currency.Type}, {"UnitPrice", Currency.Type}}),
+				    #"Consultas Mescladas" = Table.NestedJoin(#"Tipo Alterado", {"ProductSubcategoryKey"}, DimProductSubcategory, {"ProductSubcategoryKey"}, "DimProductSubcategory", JoinKind.LeftOuter),
+				    #"DimProductSubcategory Expandido" = Table.ExpandTableColumn(#"Consultas Mescladas", "DimProductSubcategory", {"ProductSubcategoryKey", "ProductSubcategoryName", "DimProductCategory.ProductCategoryName"}, {"DimProductSubcategory.ProductSubcategoryKey", "DimProductSubcategory.ProductSubcategoryName", "DimProductSubcategory.DimProductCategory.ProductCategoryName"}),
+				    #"Colunas Removidas" = Table.RemoveColumns(#"DimProductSubcategory Expandido",{"DimProductSubcategory.ProductSubcategoryKey"}),
+				    #"Colunas Renomeadas" = Table.RenameColumns(#"Colunas Removidas",{{"DimProductSubcategory.ProductSubcategoryName", "ProductSubcategoryName"}, {"DimProductSubcategory.DimProductCategory.ProductCategoryName", "ProductCategoryName"}})
+				in
+				    #"Colunas Renomeadas"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegação
+

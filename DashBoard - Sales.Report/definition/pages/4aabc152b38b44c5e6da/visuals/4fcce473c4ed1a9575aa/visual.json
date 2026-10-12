@@ -1,0 +1,161 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "4fcce473c4ed1a9575aa",
+  "position": {
+    "x": 16.25,
+    "y": 368.75,
+    "z": 7000,
+    "height": 321.25,
+    "width": 325,
+    "tabOrder": 7000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "O MERCADO ASIÁTICO SE MANTEVE SÓLIDO NOS 3 ANOS CORRENTES, COM ",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "14pt",
+                      "color": "#041232"
+                    }
+                  },
+                  {
+                    "value": "CRECIMENTO ",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "14pt",
+                      "color": "#004484"
+                    }
+                  },
+                  {
+                    "value": "EMERGENTE ADVERSO À CRISE MUNDIAL ",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "14pt",
+                      "color": "#041232"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "O crescimento asiático, principalmente na China, oferece uma janela de oportunidade a ser ponderada. Tratando-se de investimentos nesse mercado, o mercado asiático apresenta a maior arrecadação de lucros em vendas online, além de possuir a maior média de lucro por loja entre as três regiões.",
+                    "textStyle": {
+                      "fontSize": "12pt",
+                      "color": "#041232"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Entretanto, ",
+                    "textStyle": {
+                      "fontSize": "12pt",
+                      "color": "#041232"
+                    }
+                  },
+                  {
+                    "value": "é indispensável avaliar os riscos",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "12pt",
+                      "color": "#004484"
+                    }
+                  },
+                  {
+                    "value": ",",
+                    "textStyle": {
+                      "fontSize": "12pt",
+                      "color": "#004484"
+                    }
+                  },
+                  {
+                    "value": " mesmo diante desse crescimento, pois a constância desse nicho ainda deve ser observada. ",
+                    "textStyle": {
+                      "fontSize": "12pt",
+                      "color": "#041232"
+                    }
+                  },
+                  {
+                    "value": "Não há como saber o teto desse crescimento em relação aos investimentos.",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "12pt",
+                      "color": "#041232"
+                    }
+                  },
+                  {
+                    "value": " Portanto, investimentos graduais e seguros, que permitam testar a resposta desse mercado, são abordagens mais realistas.",
+                    "textStyle": {
+                      "fontSize": "12pt",
+                      "color": "#041232"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Buscar incentivos fiscais e focar em vendas online, com aumento dos estoques e investimentos em marketing na região, são possíveis abordagens iniciais.",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "12pt",
+                      "color": "#004484"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

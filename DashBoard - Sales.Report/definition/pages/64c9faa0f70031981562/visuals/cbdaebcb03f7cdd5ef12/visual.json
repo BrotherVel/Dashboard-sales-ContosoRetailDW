@@ -1,0 +1,84 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "cbdaebcb03f7cdd5ef12",
+  "position": {
+    "x": 747.77777777777771,
+    "y": 302.22222222222223,
+    "z": 5000,
+    "height": 65.555555555555557,
+    "width": 526.66666666666663,
+    "tabOrder": 5000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "GRUPO BANCO MUNDIAL",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "11pt",
+                      "color": "#004484"
+                    }
+                  },
+                  {
+                    "value": ".",
+                    "textStyle": {
+                      "fontSize": "11pt",
+                      "color": "#004484"
+                    }
+                  },
+                  {
+                    "value": " Crecimiento del PIB (% anual) - North America.",
+                    "textStyle": {
+                      "fontSize": "11pt",
+                      "color": "#041232"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Link de acesso: ",
+                    "textStyle": {
+                      "color": "#041232"
+                    }
+                  },
+                  {
+                    "value": "https://datos.bancomundial.org/indicador/NY.GDP.MKTP.KD.ZG?end=2009&locations=XU&start=2004",
+                    "textStyle": {
+                      "textDecoration": "underline",
+                      "color": "#50767b"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

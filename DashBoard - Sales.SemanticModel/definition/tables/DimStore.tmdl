@@ -1,0 +1,56 @@
+table DimStore
+	lineageTag: 0451b3e6-9a63-4040-82fb-8a453035239e
+
+	column StoreKey
+		dataType: string
+		lineageTag: 10e6acab-02d1-4773-9aa4-ed5aaa775770
+		summarizeBy: none
+		sourceColumn: StoreKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column GeographyKey
+		dataType: string
+		lineageTag: e20859bb-6cf7-4623-8c47-d395f8dc294e
+		summarizeBy: none
+		sourceColumn: GeographyKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column StoreManager
+		dataType: string
+		lineageTag: b261cc0f-8c35-41e9-9f12-90fa50735a15
+		summarizeBy: none
+		sourceColumn: StoreManager
+
+		annotation SummarizationSetBy = Automatic
+
+	column StoreType
+		dataType: string
+		lineageTag: 05c1acee-d604-4962-86a5-8a6891a91d59
+		summarizeBy: none
+		sourceColumn: StoreType
+
+		annotation SummarizationSetBy = Automatic
+
+	column StoreName
+		dataType: string
+		lineageTag: dc0860e5-4005-4c36-8865-dccc961ec97f
+		summarizeBy: none
+		sourceColumn: StoreName
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimStore = m
+		mode: import
+		source =
+				let
+				    Fonte = Sql.Database("LocalHost", "ContosoRetailDW", [Query="SELECT DS.[StoreKey]#(lf)      ,DS.[GeographyKey]#(lf)      ,DE.FirstName AS StoreManager#(lf)      ,DS.[StoreType]#(lf)      ,DS.[StoreName]#(lf)  FROM [ContosoRetailDW].[dbo].[DimStore] AS DS#(lf)  LEFT JOIN DimEmployee AS DE ON DS.[StoreManager] = DE.EmployeeKey"]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(Fonte,{{"StoreKey", type text}, {"GeographyKey", type text}, {"StoreManager", type text}})
+				in
+				    #"Tipo Alterado"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegação
+

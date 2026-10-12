@@ -1,0 +1,25 @@
+relationship cc975759-76f5-476c-9052-5ff24a0384bf
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DimDate.Datekey
+	toColumn: LocalDateTable_64583c1a-3301-40b3-a9fb-6e0bcc499fdd.Date
+
+relationship bb75a782-299d-8941-418e-94955219b7f5
+	fromColumn: FactSales.channelKey
+	toColumn: DimChannel.ChannelKey
+
+relationship 31e84921-d9dd-0d20-3c46-56fd010f4bdb
+	fromColumn: FactSales.DateKey
+	toColumn: DimDate.Datekey
+
+relationship 0c641e48-2b29-848f-87b3-deb9b2e353e0
+	fromColumn: FactSales.ProductKey
+	toColumn: DimProduct.ProductKey
+
+relationship ab385dc6-505f-2ab2-f50a-5f1acad10257
+	fromColumn: FactSales.StoreKey
+	toColumn: DimStore.StoreKey
+
+relationship f756fe94-4b10-2190-f2eb-696643ad796a
+	fromColumn: DimStore.GeographyKey
+	toColumn: DimGeography.GeographyKey
+

@@ -1,0 +1,244 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "1e88fef10272dc535e7e",
+  "position": {
+    "x": 648.75,
+    "y": 67.5,
+    "z": 1000,
+    "height": 270,
+    "width": 611.25,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "VENDAS ",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "14pt",
+                      "color": "#041232"
+                    }
+                  },
+                  {
+                    "value": "ONLINE ",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "14pt",
+                      "color": "#004484"
+                    }
+                  },
+                  {
+                    "value": "APRESENTAM UM POTENCIAL PROMISSOR,",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "14pt",
+                      "color": "#041232"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "COM ",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "14pt",
+                      "color": "#041232"
+                    }
+                  },
+                  {
+                    "value": "CRESCIMENTO DE 20%",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "14pt",
+                      "color": "#004484"
+                    }
+                  },
+                  {
+                    "value": " NOS LUCROS ENTRE 2007 E 2009 ",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "14pt",
+                      "color": "#041232"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Mesmo em meio à crise econômica, ",
+                    "textStyle": {
+                      "fontSize": "12pt",
+                      "color": "#041232"
+                    }
+                  },
+                  {
+                    "value": "os lucros das vendas online cresceram.",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "12pt",
+                      "color": "#004484"
+                    }
+                  },
+                  {
+                    "value": " Uma vantagem desse meio é oferecer o produto diretamente ao consumidor-alvo, sem as barreiras geográficas enfrentadas pelas lojas físicas.",
+                    "textStyle": {
+                      "fontSize": "12pt",
+                      "color": "#041232"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Um ",
+                    "textStyle": {
+                      "fontSize": "12pt",
+                      "color": "#041232"
+                    }
+                  },
+                  {
+                    "value": "reposicionamento de mercado",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "12pt",
+                      "color": "#004484"
+                    }
+                  },
+                  {
+                    "value": ", com investimentos em marketing neste setor e melhorias na estrutura para reduzir o preço do frete e o prazo de entrega dos produtos, são abordagens possíveis para aproveitar essa janela de oportunidade.",
+                    "textStyle": {
+                      "fontSize": "12pt",
+                      "color": "#041232"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "A gerente de vendas da China, ",
+                    "textStyle": {
+                      "fontSize": "12pt",
+                      "color": "#041232"
+                    }
+                  },
+                  {
+                    "value": "Nuria",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "12pt",
+                      "color": "#004484"
+                    }
+                  },
+                  {
+                    "value": ", apresenta a maior arrecadação em vendas da empresa, sendo sua receita proveniente na maior parte das vendas online. ",
+                    "textStyle": {
+                      "fontSize": "12pt",
+                      "color": "#041232"
+                    }
+                  },
+                  {
+                    "value": "Ben",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "12pt",
+                      "color": "#004484"
+                    }
+                  },
+                  {
+                    "value": ", o terceiro gerente mais bem-sucedido da empresa e responsável pelas vendas na América do Norte, também possui sua arrecadação majoritariamente baseada em vendas online.",
+                    "textStyle": {
+                      "fontSize": "12pt",
+                      "color": "#041232"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Para explorar melhor esse canal de vendas, é possível ",
+                    "textStyle": {
+                      "fontSize": "12pt",
+                      "color": "#041232"
+                    }
+                  },
+                  {
+                    "value": "consultar esses gerentes responsáveis pelas vendas online, a fim de compreender com mais profundidade os cenários em que estão inseridos",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "12pt",
+                      "color": "#004484"
+                    }
+                  },
+                  {
+                    "value": ", seus limitadores e os possíveis pontos de investimento para o crescimento desse canal.",
+                    "textStyle": {
+                      "fontSize": "12pt",
+                      "color": "#041232"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

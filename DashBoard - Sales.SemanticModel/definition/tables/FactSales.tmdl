@@ -1,0 +1,122 @@
+table FactSales
+	lineageTag: 7423dbb1-3ecb-48ac-b990-5987dba64d26
+
+	column SalesKey
+		dataType: string
+		lineageTag: 6e4a4bb3-1f6f-4347-929a-bb790869b19e
+		summarizeBy: none
+		sourceColumn: SalesKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column DateKey
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 4593736a-855c-4513-8df7-baab196862b6
+		summarizeBy: none
+		sourceColumn: DateKey
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column channelKey
+		dataType: string
+		lineageTag: b7558131-d8de-45df-a9b2-bc49cd70d1a6
+		summarizeBy: none
+		sourceColumn: channelKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column StoreKey
+		dataType: string
+		lineageTag: 5bf788e2-7411-44b3-884b-a9870daa40f8
+		summarizeBy: none
+		sourceColumn: StoreKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductKey
+		dataType: string
+		lineageTag: a35045b9-9c45-4276-a071-d6873ae49d07
+		summarizeBy: none
+		sourceColumn: ProductKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column UnitCost
+		dataType: decimal
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: d75d90a5-be44-4023-b99e-552a112c9025
+		summarizeBy: sum
+		sourceColumn: UnitCost
+
+		annotation SummarizationSetBy = Automatic
+
+	column UnitPrice
+		dataType: decimal
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 3a9b9b65-7d76-459b-9a5d-00688b0e9e39
+		summarizeBy: sum
+		sourceColumn: UnitPrice
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesQuantity
+		dataType: int64
+		formatString: 0
+		lineageTag: 89bfbc06-797c-4f9d-8de6-1a5a1739f86f
+		summarizeBy: sum
+		sourceColumn: SalesQuantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReturnQuantity
+		dataType: int64
+		formatString: 0
+		lineageTag: 45cbe3ed-c896-400a-b429-2bc5d1adce1e
+		summarizeBy: sum
+		sourceColumn: ReturnQuantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReturnAmount
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 6a2455a9-64ce-4167-9759-be25c480c256
+		summarizeBy: sum
+		sourceColumn: ReturnAmount
+
+		annotation SummarizationSetBy = Automatic
+
+	column TotalCost
+		dataType: decimal
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 6f8df2d6-365c-48fd-aa0f-e837965d9560
+		summarizeBy: sum
+		sourceColumn: TotalCost
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesAmount
+		dataType: decimal
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 19238957-6f58-4fdc-a3ff-95047b57a8eb
+		summarizeBy: sum
+		sourceColumn: SalesAmount
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FactSales = m
+		mode: import
+		source =
+				let
+				    Fonte = Sql.Database("LocalHost", "ContosoRetailDW", [Query="SELECT [SalesKey]#(lf)      ,[DateKey]#(lf)      ,[channelKey]#(lf)      ,[StoreKey]#(lf)      ,[ProductKey]#(lf)      ,[UnitCost]#(lf)      ,[UnitPrice]#(lf)      ,[SalesQuantity]#(lf)      ,[ReturnQuantity]#(lf)      ,[ReturnAmount]#(lf)      ,[TotalCost]#(lf)      ,[SalesAmount]#(lf)  FROM [ContosoRetailDW].[dbo].[FactSales]"]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(Fonte,{{"SalesKey", type text}, {"channelKey", type text}, {"StoreKey", type text}, {"ProductKey", type text}, {"UnitCost", Currency.Type}, {"UnitPrice", Currency.Type}, {"SalesQuantity", Int64.Type}, {"ReturnQuantity", Int64.Type}, {"ReturnAmount", Currency.Type}, {"TotalCost", Currency.Type}, {"SalesAmount", Currency.Type}, {"DateKey", type date}})
+				in
+				    #"Tipo Alterado"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

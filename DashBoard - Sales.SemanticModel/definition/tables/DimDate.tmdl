@@ -1,0 +1,113 @@
+table DimDate
+	lineageTag: d83704d4-1644-4715-b846-ac6445827fb0
+
+	column Datekey
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: d574d126-55ea-4aa6-ad6f-42aa62a31ecf
+		summarizeBy: none
+		sourceColumn: Datekey
+
+		variation Variation
+			isDefault
+			relationship: cc975759-76f5-476c-9052-5ff24a0384bf
+			defaultHierarchy: LocalDateTable_64583c1a-3301-40b3-a9fb-6e0bcc499fdd.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Nome do Dia'
+		dataType: string
+		lineageTag: c7391729-a580-4c1a-bd7a-e02a50e754e4
+		summarizeBy: none
+		sourceColumn: Nome do Dia
+
+		annotation SummarizationSetBy = Automatic
+
+	column year
+		dataType: int64
+		formatString: 0
+		lineageTag: 3461bbe7-3fae-441d-a4b8-656ea03159f2
+		summarizeBy: sum
+		sourceColumn: year
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month
+		dataType: int64
+		formatString: 0
+		lineageTag: 95a0545a-de88-4248-83a0-8829b720f7f9
+		summarizeBy: sum
+		sourceColumn: Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Name'
+		dataType: string
+		lineageTag: 2f4f0146-9b7e-4ce1-a243-4a270e652ad8
+		summarizeBy: none
+		sourceColumn: Month Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Abrev'
+		dataType: string
+		lineageTag: a194f14e-18dd-460e-ba9d-053ff3401625
+		summarizeBy: none
+		sourceColumn: Month Abrev
+		sortByColumn: Month
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Year Month'
+		dataType: string
+		lineageTag: 4594e881-87ad-4a3d-92ea-bf4f014410f5
+		summarizeBy: none
+		sourceColumn: Year Month
+		sortByColumn: year
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Year Month Abrev'
+		dataType: string
+		lineageTag: d91c101f-b94a-4aad-8998-bb2e4fc6a466
+		summarizeBy: none
+		sourceColumn: Year Month Abrev
+
+		annotation SummarizationSetBy = Automatic
+
+	column Day
+		dataType: int64
+		formatString: 0
+		lineageTag: 15c884f6-8f62-447d-baf3-c54b0ba613ea
+		summarizeBy: sum
+		sourceColumn: Day
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimDate = m
+		mode: import
+		source =
+				let
+				    Fonte = Sql.Database("LocalHost", "ContosoRetailDW", [Query="SELECT [Datekey]#(lf)FROM [ContosoRetailDW].[dbo].[DimDate]"]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(Fonte,{{"Datekey", type date}}),
+				    #"Inserted Year" = Table.AddColumn(#"Tipo Alterado", "year", each Date.Year([Datekey]), Int64.Type),
+				    #"Inserted Month" = Table.AddColumn(#"Inserted Year", "Month", each Date.Month([Datekey]), Int64.Type),
+				    #"Inserted Month Name" = Table.AddColumn(#"Inserted Month", "Month Name", each Date.MonthName([Datekey], "en-US"), type text),
+				    #"Added Custom" = Table.AddColumn(#"Inserted Month Name", "Month Abrev", each Text.Start([Month Name], 3)),
+				    #"Added Custom1" = Table.AddColumn(#"Added Custom", "Year Month", each Date.ToText([Datekey], "yyyy/MM", "en-US")),
+				    #"Added Custom2" = Table.AddColumn(#"Added Custom1", "Year Month Abrev", each Date.ToText([Datekey], "yyyy/MMM","en-Us")),
+				    #"Inserted Day" = Table.AddColumn(#"Added Custom2", "Day", each Date.Day([Datekey]), Int64.Type),
+				    #"Inserted Day Name" = Table.AddColumn(#"Inserted Day", "Nome do Dia", each Date.DayOfWeekName([Datekey], "en-US"), type text)
+				in
+				    #"Inserted Day Name"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegação
+

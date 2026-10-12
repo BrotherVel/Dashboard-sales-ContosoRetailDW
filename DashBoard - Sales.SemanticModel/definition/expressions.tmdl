@@ -1,0 +1,27 @@
+expression DimProductCategory =
+		let
+		    Fonte = Sql.Database("LocalHost", "ContosoRetailDW", [Query="SELECT [ProductCategoryKey]#(lf)      ,[ProductCategoryName]#(lf)FROM [ContosoRetailDW].[dbo].[DimProductCategory]#(lf)"])
+		in
+		    Fonte
+	lineageTag: 6138e353-fea9-49b3-aabe-b5d66a0c51a7
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+
+expression DimProductSubcategory =
+		let
+		    Fonte = Sql.Database("LocalHost", "ContosoRetailDW", [Query="SELECT [ProductSubcategoryKey]#(lf)      ,[ProductSubcategoryName]#(lf)      ,[ProductCategoryKey]#(lf)  FROM [ContosoRetailDW].[dbo].[DimProductSubcategory]"]),
+		    #"Consultas Mescladas" = Table.NestedJoin(Fonte, {"ProductCategoryKey"}, DimProductCategory, {"ProductCategoryKey"}, "DimProductCategory", JoinKind.LeftOuter),
+		    #"DimProductCategory Expandido" = Table.ExpandTableColumn(#"Consultas Mescladas", "DimProductCategory", {"ProductCategoryKey", "ProductCategoryName"}, {"DimProductCategory.ProductCategoryKey", "DimProductCategory.ProductCategoryName"}),
+		    #"Colunas Removidas" = Table.RemoveColumns(#"DimProductCategory Expandido",{"DimProductCategory.ProductCategoryKey", "ProductCategoryKey"}),
+		    #"Tipo Alterado" = Table.TransformColumnTypes(#"Colunas Removidas",{{"ProductSubcategoryKey", type text}}),
+		    #"Colunas Renomeadas" = Table.RenameColumns(#"Tipo Alterado",{{"DimProductCategory.ProductCategoryName", "ProductCategoryName"}})
+		in
+		    #"Colunas Renomeadas"
+	lineageTag: 2e884e37-13ad-4a1f-9fef-fa34069f4d6c
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,472 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "c215dd3fc439234902b9",
+  "position": {
+    "x": 13.486590038314176,
+    "y": 8.5823754789272026,
+    "z": 0,
+    "height": 711.11111111111109,
+    "width": 1256.7049808429117,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "\tINTRODUÇÃO",
+                    "textStyle": {
+                      "fontSize": "12pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "O Banco de dados Contoso é um banco de dados fictício de venda de produtos de 2007 até  2009.",
+                    "textStyle": {
+                      "fontSize": "12pt"
+                    }
+                  }
+                ],
+                "listType": "bullet"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Representa a decadência de vendas um cenário de produtos ao longo desses anos.",
+                    "textStyle": {
+                      "fontSize": "12pt"
+                    }
+                  }
+                ],
+                "listType": "bullet"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Demonstra um baixa em vendas todo início de ano: JAN, FEV e MAR (investigar um padrão no grupo consumidor)",
+                    "textStyle": {
+                      "fontSize": "12pt"
+                    }
+                  }
+                ],
+                "listType": "bullet"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "O pico de vendas, o que parece ser o natural da empresa, se dá principalmente no mês de entre SET e NOV.",
+                    "textStyle": {
+                      "fontSize": "12pt"
+                    }
+                  }
+                ],
+                "listType": "bullet"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "\tINVESTIGAR",
+                    "textStyle": {
+                      "fontSize": "12pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": " (hipótese 1) A queda de vendas se dá muito provavelmente, por ser um recorte estático, pela defasagem daqueles produtos tecnológicos, sem levar em conta outros possíveis problemas empresariais as quais sairiam da caixa de visualização do modelo de dados, como: problemas de marketing, problemas de gestão, problemas de produção, crise econômica, etc...",
+                    "textStyle": {
+                      "fontSize": "12pt"
+                    }
+                  }
+                ],
+                "listType": "bullet"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "\tTENDÊNCIAS e CENÁRIO",
+                    "textStyle": {
+                      "fontSize": "12pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Por outro lado, vemos algo muito compatível com as tendências atuais. Vendas vendidas online tiveram crescimento com relação às outras modalidades (cerca de 21% em comparação de 2009 e 2007).",
+                    "textStyle": {
+                      "fontSize": "12pt"
+                    }
+                  }
+                ],
+                "listType": "bullet"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "A venda feita por revendedores se manteve consideravelmente constante, tendo baixa queda (queda de 5% em comparação de 2009 e 2007).",
+                    "textStyle": {
+                      "fontSize": "12pt"
+                    }
+                  }
+                ],
+                "listType": "bullet"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "A maior parte da venda de produtos é feita por lojas físicas (cerca 55% da receita). Entretanto, foi o canal de vendas que sofreu a maior queda (cerca de 31% em comparação de 2009 e 2007)",
+                    "textStyle": {
+                      "fontSize": "12pt"
+                    }
+                  }
+                ],
+                "listType": "bullet"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Vendas do catálogo nunca foi o meio de vendas mais efetivo (cerca de 8% dos 4 canais). O único pico de vendas foi em NOV de 2007 devido a venda expressiva de câmeras digitais de forma repentina.",
+                    "textStyle": {
+                      "fontSize": "12pt"
+                    }
+                  }
+                ],
+                "listType": "bullet"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "O motivo desse crescimento vendas de câmeras é algo difícil de se definir o motivo. Principalmente por ser um banco de dados fictício, onde não se sabe ao certo se os casos são embasados em fenômenos reais. ",
+                    "textStyle": {
+                      "fontSize": "12pt"
+                    }
+                  }
+                ],
+                "listType": "bullet"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "As vendas da classe Economy foi a única a apresentar crescimento sólido de 2007 a 2009.",
+                    "textStyle": {
+                      "fontSize": "12pt"
+                    }
+                  }
+                ],
+                "listType": "bullet"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "\tCENÁRIO HISTÓRICO",
+                    "textStyle": {
+                      "fontSize": "12pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "A verdade é que, a pesar dos dados serem fictícios, esse banco de dados conta uma história muito compatível com o contexto histórico mundial de crise econômica. (+ infos sobre no mapa no canva)",
+                    "textStyle": {
+                      "fontSize": "12pt"
+                    }
+                  }
+                ],
+                "listType": "bullet"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "A empresa sofreu com a crise, com até certo crescimento em 2007 (início), mas com uma decadência regular na qual não conseguiu contornar, com o ápice da crise da empresa em 2009 (obter numero de demissões da empresa nesse período)",
+                    "textStyle": {
+                      "fontSize": "12pt"
+                    }
+                  }
+                ],
+                "listType": "bullet"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "\t",
+                    "textStyle": {
+                      "fontSize": "12pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "\tPossíveis alternativas:",
+                    "textStyle": {
+                      "fontSize": "12pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Os dados mostra, por outro lado, um crescimento nas vendas asiáticas, o que é compatível com a realidade, dado o fato que países da América Latina (como o Brasil) e da Ásia (principalmente a China) foram os primeiros a começarem a se recuperar da crise, apresentando até certo crescimento. (pesquisas)",
+                    "textStyle": {
+                      "fontSize": "12pt"
+                    }
+                  }
+                ],
+                "listType": "bullet"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "É possível ver que mercado asiático cresceu em (?) nesse período, representando potencial oportunidade de crescimento nesse mercado. ",
+                    "textStyle": {
+                      "fontSize": "12pt"
+                    }
+                  }
+                ],
+                "listType": "bullet"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Um dos impedimentos de crescimento desse mercado fica para o fato de haverem poucas lojas físicas em países asiáticos, em especial a China: ",
+                    "textStyle": {
+                      "fontSize": "12pt"
+                    }
+                  }
+                ],
+                "listType": "bullet"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Na Ásia há 41 lojas físicas em comparação ao continente norte americano com 209 lojas.",
+                    "textStyle": {
+                      "fontSize": "12pt"
+                    }
+                  }
+                ],
+                "listType": "bullet"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "A receita obtida por loja nos países Asiáticos em 2007 é de cerca de 7MI enquanto em países Norte Americanos era de 9MI.",
+                    "textStyle": {
+                      "fontSize": "12pt"
+                    }
+                  }
+                ],
+                "listType": "bullet"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Entretanto em 2008 já é evidente o potencial de crescimento de consumidores na Ásia, com cerca de 10MI por loja física, enquanto o mercado Norte Americano sofreu uma queda para 7MI. Aqui já é visível um possível reposicionamento de mercado em meio a crise",
+                    "textStyle": {
+                      "fontSize": "12pt"
+                    }
+                  }
+                ],
+                "listType": "bullet"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Em 2009 o mercado asiático atingiu  a receita 11MI por loja física, enquanto o continente norte americano foi enterrado para apenas 5Mi de arrecadação da receita por loja.",
+                    "textStyle": {
+                      "fontSize": "12pt"
+                    }
+                  }
+                ],
+                "listType": "bullet"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "\"Nuria\", representante na China,  é a Store Manager de vendas com o melhor desempenho em lucro, com maior foco de vendas feitas online e por revendedores. (sinal promissor)",
+                    "textStyle": {
+                      "fontSize": "12pt"
+                    }
+                  }
+                ],
+                "listType": "bullet"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ". O maior sucesso de vendas na China é em vendas com revendedores e online. Os demais Managers que estão na china tiveram baixo desempenho. o padrão está no fato de suas únicos canais de vendas serem apenas lojas físicas. Esse baixo desemprenho em lojas físicas também inclui a gerente \"Nuria'.",
+                    "textStyle": {
+                      "fontSize": "12pt"
+                    }
+                  }
+                ],
+                "listType": "bullet"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "OBS: Em cada região, só há um representante de vendas que realiza vendas online. Na asia é núria da china, no continente norte americano é Ben dos EUA, e na europa é kelly da Germania.",
+                    "textStyle": {
+                      "fontSize": "12pt"
+                    }
+                  }
+                ],
+                "listType": "bullet"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Por isso esses vendedores se destacam do outros, por representarem todas as vendas online de sua região.",
+                    "textStyle": {
+                      "fontSize": "12pt"
+                    }
+                  }
+                ],
+                "listType": "bullet"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Kelly também apresentou consistência nas vendas online, sem a apresentar queda brusca sofrida das vendas em lojas físicas da Europa também",
+                    "textStyle": {
+                      "fontSize": "12pt"
+                    }
+                  }
+                ],
+                "listType": "bullet"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "\tSobre o mercado norte americano:",
+                    "textStyle": {
+                      "fontSize": "12pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "As vendas online representam um ramo muito promissor. sofrendo baixo impacto da crise econômica.",
+                    "textStyle": {
+                      "fontSize": "12pt"
+                    }
+                  }
+                ],
+                "listType": "bullet"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "O fato mais interessante é que as todas vendas online no continente norte americano são representadas por um único gerente nos EUA, chamado \"Ben\", sendo o gerente com o melhor desemprenho de vendas dentre todos os outros. Caberia investimento nesse ramo com gerentes de vendas online em outros países? Porque não há mais gerentes de vendas online nos EUA? É uma boa escolha manter um único gerente? Isso É o limitador das vendas online?",
+                    "textStyle": {
+                      "fontSize": "12pt"
+                    }
+                  }
+                ],
+                "listType": "bullet"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Outro ramo poderoso e promisso nos EUA, mas com poucos representantes e pouco explorados, é o de revendedores. Um dos mais expressivos nesse ramo na empresa é o gerente \"roy\".",
+                    "textStyle": {
+                      "fontSize": "12pt"
+                    }
+                  }
+                ],
+                "listType": "bullet"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "As lojas físicas ganham em maioria de representantes e quantidade. Mas o fato de serem a maior base de arrecadação da empresa é pela grande quantidade de lojas físicas, e não por grande efetividade delas. ",
+                    "textStyle": {
+                      "fontSize": "12pt"
+                    }
+                  }
+                ],
+                "listType": "bullet"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Ademais, lojas físicas apresentam maior demanda de gastos para se manterem ativas.",
+                    "textStyle": {
+                      "fontSize": "12pt"
+                    }
+                  }
+                ],
+                "listType": "bullet"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "O gerente 'jan' é responsável por todas as vendas do catalogo, sendo o único representante desta modalidade.",
+                    "textStyle": {
+                      "fontSize": "12pt"
+                    }
+                  }
+                ],
+                "listType": "bullet"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "e7f71d12609eb04fcfad",
+  "position": {
+    "x": 747.13578928365393,
+    "y": 655.00712104972558,
+    "z": 8000,
+    "height": 64.480171489817792,
+    "width": 532.304394426581,
+    "tabOrder": 8000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "GRUPO BANCO MUNDIAL",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "10.5pt",
+                      "color": "#004484"
+                    }
+                  },
+                  {
+                    "value": ". Crecimiento del PIB (% anual) - Europe & Asia Central. ",
+                    "textStyle": {
+                      "fontSize": "10.5pt",
+                      "color": "#041232"
+                    }
+                  },
+                  {
+                    "value": "Link de acesso: ",
+                    "textStyle": {
+                      "color": "#041232"
+                    }
+                  },
+                  {
+                    "value": "https://datos.bancomundial.org/indicador/NY.GDP.MKTP.KD.ZG?end=2009&locations=Z7&name_desc=false&start=2005&view=chart",
+                    "textStyle": {
+                      "textDecoration": "underline",
+                      "color": "#50767b"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

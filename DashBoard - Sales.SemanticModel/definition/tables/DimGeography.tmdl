@@ -1,0 +1,64 @@
+table DimGeography
+	lineageTag: 8bdf98a0-18b1-4033-982c-9776672706e7
+
+	column GeographyKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 41ed6ad5-ed2b-491d-90e7-f702d4ee53c4
+		summarizeBy: none
+		sourceColumn: GeographyKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column GeographyType
+		dataType: string
+		lineageTag: 925e40e8-01df-452a-98c4-3ad52b732d62
+		summarizeBy: none
+		sourceColumn: GeographyType
+
+		annotation SummarizationSetBy = Automatic
+
+	column ContinentName
+		dataType: string
+		lineageTag: 1f5d8134-bd0d-4dd7-922b-1c445496c846
+		summarizeBy: none
+		sourceColumn: ContinentName
+
+		annotation SummarizationSetBy = Automatic
+
+	column CityName
+		dataType: string
+		lineageTag: 9f597d13-e66b-4704-8b08-e158142346b2
+		summarizeBy: none
+		sourceColumn: CityName
+
+		annotation SummarizationSetBy = Automatic
+
+	column StateProvinceName
+		dataType: string
+		lineageTag: 92ecbff7-45a7-4f85-ac20-25eb5e58992f
+		summarizeBy: none
+		sourceColumn: StateProvinceName
+
+		annotation SummarizationSetBy = Automatic
+
+	column RegionCountryName
+		dataType: string
+		lineageTag: 79afb8ad-4682-413b-896b-6d22bf15b144
+		summarizeBy: none
+		sourceColumn: RegionCountryName
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimGeography = m
+		mode: import
+		source =
+				let
+				    Fonte = Sql.Database("localHost", "ContosoRetailDW", [Query="SELECT [GeographyKey]#(lf)      ,[GeographyType]#(lf)      ,[ContinentName]#(lf)      ,[CityName]#(lf)      ,[StateProvinceName]#(lf)      ,[RegionCountryName]#(lf)  FROM [ContosoRetailDW].[dbo].[DimGeography]"])
+				in
+				    Fonte
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

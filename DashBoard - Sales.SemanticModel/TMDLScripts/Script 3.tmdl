@@ -1,0 +1,44 @@
+createOrReplace
+
+	relationship 144cf311-ecb9-47fc-9b3a-e4a5d70c93ac
+		fromColumn: DimStore.GeographyKey
+		toColumn: DimGeography.GeographyKey
+
+		annotation PBI_IsFromSource = FS
+
+	relationship 6655632e-4e78-d8a2-caa6-219783e95132
+		fromColumn: FactSalesQuota.ChannelKey
+		toColumn: DimChannel.ChannelKey
+
+	relationship bb75a782-299d-8941-418e-94955219b7f5
+		fromColumn: FactSales.channelKey
+		toColumn: DimChannel.ChannelKey
+
+	relationship e63ed899-576f-27e8-80f0-c9fcfb3dd80b
+		fromColumn: FactSalesQuota.DateKey
+		toColumn: DimDate.Datekey
+
+	relationship 31e84921-d9dd-0d20-3c46-56fd010f4bdb
+		fromColumn: FactSales.DateKey
+		toColumn: DimDate.Datekey
+
+	relationship 02ca0bad-cf83-ae89-ac26-94c09eac494f
+		fromColumn: FactSalesQuota.ProductKey
+		toColumn: DimProduct.ProductKey
+
+	relationship 0c641e48-2b29-848f-87b3-deb9b2e353e0
+		fromColumn: FactSales.ProductKey
+		toColumn: DimProduct.ProductKey
+
+	relationship dfa41a80-7e94-3350-4d92-c8fe6d45960b
+		fromColumn: FactSalesQuota.StoreKey
+		toColumn: DimStore.StoreKey
+
+	relationship ab385dc6-505f-2ab2-f50a-5f1acad10257
+		fromColumn: FactSales.StoreKey
+		toColumn: DimStore.StoreKey
+
+	relationship ed7cf263-5eff-22c8-afa0-703ebb8eedf8
+		fromColumn: FactSalesQuota.ScenarioKey
+		toColumn: DimScenario.ScenarioKey
+
